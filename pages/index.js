@@ -1,15 +1,11 @@
-import ContentWrapper from "@/components/module/ContentWrapper"
-import HeroBanner from "@/components/template/HeroBanner"
+import HeroBanner from "@/components/template/BooksBanner"
+import HomeContent from "@/components/template/HomeContent"
 
 export default function Home() {
   return (
-    <main>
+    <div>
       <HeroBanner />
-      <ContentWrapper>
-        <div className="">
-          body
-        </div>
-      </ContentWrapper>
-    </main>
+      <HomeContent />
+    </div>
   )
 }

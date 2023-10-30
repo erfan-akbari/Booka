@@ -1,4 +1,4 @@
-import HeroBanner from "@/components/template/BooksBanner"
+import HeroBanner from "@/components/template/HeroBanner"
 import HomeContent from "@/components/template/HomeContent"
 
 export default function Home() {

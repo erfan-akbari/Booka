@@ -15,7 +15,7 @@ function HeroBanner() {
     }, [])
 
     return (
-        <>
+        <div className='z-10'>
             <Swiper
                 spaceBetween={30}
                 autoplay={{
@@ -33,7 +33,7 @@ function HeroBanner() {
                         <p data-aos="fade-up-right" data-aos-duration={600} className="bg-stone-50 text-black p-2 w-fit text-xl font-semibold">نصب اپلیکیشن کتابخانه روی دسکتاپ</p>
                         <Link data-aos="fade-up-right" data-aos-duration={800} href={''} className='flex items-center gap-2 bg-blue-600 text-stone-50 w-fit px-2 py-1 rounded-md hover:bg-blue-400 transition-colors'>
                             <BsArrowRight />
-                            ژگی‌هامشاهده ویژگی ها
+                            مشاهده ویژگی ها
                         </Link>
                     </div>
                 </SwiperSlide>
@@ -75,7 +75,7 @@ function HeroBanner() {
                     </div>
                 </SwiperSlide>
             </Swiper>
-        </>
+        </div>
     )
 }
 

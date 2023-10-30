@@ -84,7 +84,7 @@ function Header() {
                     </div>
                 </ContentWrapper>
             </nav>
-            <div className={`transition-all duration-300 ${open ? 'h-fit  opacity-100' : 'h-0 opacity-0'} text-lg py-2 mb-5`} >
+            <div className={`transition-all duration-300 ${open ? 'h-fit  opacity-100 mb-5' : 'h-0 opacity-0'} text-lg py-2`} >
                 <ContentWrapper>
                     <div className="flex items-center border py-1.5 px-3 rounded-full mb-5">
                         <input className="w-full outline-none border-none" type="text" placeholder="جستجو..." />

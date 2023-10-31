@@ -2,31 +2,20 @@ import React from 'react'
 
 function CardV3({ poster, title, price, score, caption }) {
     return (
-        <div className="w-full h-full relative">
-            <div className="pb-20 bg-white py-4 border-4 border-gray-300 rounded-3xl h-full shadow-xl">
-                <img src={poster} className="w-64 h-54 " />
-                    <div className="py-4 flex space-x-2 items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-500" viewBox="0 0 20 20"
-                            fill="currentColor">
-                            <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
-                        </svg>
-                        <p className="text-lg font-semibold">{title}</p>
-                    </div>
+        <div className="my-5 w-fit relative flex flex-col text-gray-700 bg-gray-100 shadow-md rounded-xl bg-clip-border">
+            <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg rounded-xl bg-clip-border group">
+                <img className='group-hover:grayscale transition-all duration-200' src={poster} alt="profile-picture" />
             </div>
-            <div className="absolute bottom-0 right-0 ">
-                <div className="flex justify-between">
-                    <div className="bg-gray-300 px-2 rounded-lg w-full ">
-                    <div className="py-4 pr-5">
-                        <p className="text-sm font-semibold text-gray-400">5.{score}</p>
-                        <p className="text-lg font-semibold">{price}</p>
-                    </div>
-                    </div>
-                    <div className="py-4 pr-6 rounded-lg w-full flex items-center">
-                        <button
-                            className="bg-indigo-600 text-white font-bold p-1 rounded-lg uppercase text-sm  shadow-lg">
-                            همین الان بخون
-                        </button>
-                    </div>
+            <div className="p-6 text-start">
+                <h4 className="w-20 sm:w-32 md:w-52 lg:w-64 overflow-hidden whitespace-nowrap text-ellipsis block mb-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+                    {title}
+                </h4>
+                <p className="block font-sans text-base antialiased font-medium leading-relaxed text-gray-600">
+                    {caption}
+                </p>
+                <div className="flex items-center justify-between border-t pt-2 mt-2">
+                    <p className='text-yellow-500 font-bold'>امتیاز {score}</p>
+                    <p className='text-red-500 font-semibold'>{price}</p>
                 </div>
             </div>
         </div>

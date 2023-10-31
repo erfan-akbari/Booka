@@ -1,7 +1,7 @@
 export const booksBanner = [
-    { id: 2, title: 'ارسال راگان', body: 'برای خرید بیش لز یک میلیون تومان', color: "from-sky-600 to-indigo-600", shadow: "shadow-lg shadow-blue-500" },
-    { id: 1, title: 'کتاب سفارشی', body: 'کتاب خود را سفارش دهید', color: "from-green-600 to-lime-500", shadow: "shadow-lg shadow-lime-500" },
-    { id: 3, title: 'فروش ویژه', body: 'فروش مجوعه های چند جلدی', color: "from-orange-500 to-amber-500", shadow: "shadow-lg shadow-orange-500" },
+    { id: 2, title: 'ارسال راگان', body: 'برای خرید بیش لز یک میلیون تومان' },
+    { id: 1, title: 'کتاب سفارشی', body: 'کتاب خود را سفارش دهید' },
+    { id: 3, title: 'فروش ویژه', body: 'فروش مجوعه های چند جلدی' },
 ]
 
 export const featured = [

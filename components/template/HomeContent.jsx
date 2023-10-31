@@ -1,9 +1,10 @@
 import ContentWrapper from "../module/ContentWrapper"
+import BloggSlider from "./BloggSlider"
 import BooksBanner from "./BooksBanner"
-import Featureds from "./Featureds"
+import Carousel from "./Carousel"
 import NewBooks from "./NewBooks"
-import TopRatedBooks from "./TopRatedBooks"
 import { booksBanner, featured, books, topRatedBooks } from "@/Data/HomData"
+import TopPublishers from "./TopPublishers"
 
 function HomeContent() {
 
@@ -13,9 +14,11 @@ function HomeContent() {
             <ContentWrapper>
                 <main>
                     <BooksBanner data={booksBanner} />
-                    <Featureds data={featured} />
+                    <Carousel data={featured} title={'فروش ویژه جشنواره'} />
                     <NewBooks data={books} />
-                    <TopRatedBooks data={topRatedBooks} />
+                    <Carousel data={topRatedBooks} title={'پرامتیازترین کتاب‌ها'} />
+                    <BloggSlider title={'آخرین مطالب سایت'} />
+                    <TopPublishers title={'ناشران برتر'} />
                 </main>
             </ContentWrapper>
         </div>

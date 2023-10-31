@@ -3,9 +3,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import CardV3 from '../module/CardV3';
 
-function Carousel({ data }) {
+function Carousel({ data, title }) {
     return (
-        <section className="py-5">
+        <>
+        <section className="py-10">
+        {title && <h2 className="text-indigo-600 text-3xl font-black">{title}</h2>}
             <Swiper
                 slidesPerView={1}
                 breakpoints={{
@@ -26,6 +28,7 @@ function Carousel({ data }) {
                 ))}
             </Swiper>
         </section>
+        </>
     )
 }
 

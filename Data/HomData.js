@@ -402,5 +402,14 @@ export const topRatedBooks = [
         discount: 60,
         color: "from-orange-500 to-amber-500",
         shadow: "shadow-lg shadow-orange-500"
+    },    
+    {
+        id: 4,
+        title: 'کتاب Jessies Song نویسنده خانم جرمی ویلیامسون',
+        caption: 'توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید',
+        poster: '/images/topRatedBooks/popular-4.jpg',
+        price: 98_000,
+        score: 5,
+        discount: 20, color: "from-green-600 to-lime-500", shadow: "shadow-lg shadow-lime-500"
     }
 ]

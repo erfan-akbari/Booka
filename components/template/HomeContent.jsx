@@ -1,5 +1,5 @@
-import CardV1 from "../module/CardV1"
 import ContentWrapper from "../module/ContentWrapper"
+import BooksBanner from "./BooksBanner"
 import Featureds from "./Featureds"
 import NewBooks from "./NewBooks"
 import TopRatedBooks from "./TopRatedBooks"
@@ -9,14 +9,10 @@ function HomeContent() {
 
 
     return (
-        <div className="">
+        <div>
             <ContentWrapper>
-                <main className="">
-                    <section className='flex flex-col md:flex-row items-center justify-between gap-5'>
-                        {booksBanner.map(book => (
-                            <CardV1 key={book.id} {...book} />
-                        ))}
-                    </section>
+                <main>
+                    <BooksBanner data={booksBanner} />
                     <Featureds data={featured} />
                     <NewBooks data={books} />
                     <TopRatedBooks data={topRatedBooks} />

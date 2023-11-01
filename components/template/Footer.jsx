@@ -7,12 +7,12 @@ function Footer() {
     return (
         <footer className='bg-gradient-to-t from-red-500 to-rose-700 text-white py-10'>
             <ContentWrapper>
-                <div className='flex items-start justify-between flex-wrap gap-2'>
+                <div className='flex flex-col md:flex-row items-start justify-between flex-wrap gap-10 md:gap-2'>
                     <div className="flex flex-col items-start gap-5 basis-[30%]">
                         <h3>
                             <img src="/logo/logo-white.png" alt="logo-white" />
                         </h3>
-                        <ul className='font-semibold flex items-center gap-3 flex-wrap bg-white rounded-lg text-red-600 px-2'>
+                        <ul className='font-semibold flex items-center gap-3 flex-wrap md:bg-white rounded-lg md:text-red-600 px-2'>
                             <li className='hover:text-rose-950 transition-colors'><Link href={'/'}>خانه</Link></li>
                             <li className='hover:text-rose-950 transition-colors'><Link href={'/'}>صفحات</Link></li>
                             <li className='hover:text-rose-950 transition-colors'><Link href={'/'}>درباره ما</Link></li>

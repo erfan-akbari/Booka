@@ -12,22 +12,22 @@ function Navbar({ openDrawer }) {
                     <div className="w-full flex items-center justify-between">
                         <ul className="flex items-center gap-5 text-gray-400 font-semibold">
                             <li className="hidden lg:block">
-                                <Link href={''} className="px-1 hover:text-rose-500 transition-colors">صفحه اصلی</Link>
+                                <Link href={'/'} className="px-1 hover:text-rose-500 transition-colors">صفحه اصلی</Link>
                             </li>
                             <li className="hidden lg:block">
-                                <Link href={''} className="px-1 hover:text-rose-500 transition-colors">فروشگاه </Link>
+                                <Link href={'/books'} className="px-1 hover:text-rose-500 transition-colors">فروشگاه</Link>
                             </li>
                             <li className="hidden lg:block">
-                                <Link href={''} className="px-1 hover:text-rose-500 transition-colors">بلاگ </Link>
+                                <Link href={'/blogs'} className="px-1 hover:text-rose-500 transition-colors">بلاگ</Link>
                             </li>
                             <li className="hidden lg:block">
-                                <Link href={''} className="px-1 hover:text-rose-500 transition-colors">امکانات</Link>
+                                <Link href={'/'} className="px-1 hover:text-rose-500 transition-colors">امکانات</Link>
                             </li>
                             <li className="hidden lg:block">
-                                <Link href={''} className="px-1 hover:text-rose-500 transition-colors">درباره ما</Link>
+                                <Link href={'/aboutUs'} className="px-1 hover:text-rose-500 transition-colors">درباره ما</Link>
                             </li>
                             <li className="hidden lg:block">
-                                <Link href={''} className="px-1 hover:text-rose-500 transition-colors">تماس با ما</Link>
+                                <Link href={'/contactUs'} className="px-1 hover:text-rose-500 transition-colors">تماس با ما</Link>
                             </li>
                             <li className="lg:hidden text-3xl cursor-pointer" onClick={openDrawer}>
                                 <IoMenu />

@@ -6,8 +6,6 @@ import ContentWrapper from "@/components/module/ContentWrapper";
 import Tab from "@/components/template/Tab";
 
 export default function BookDetails({ book }) {
-  console.log(book.poster);
-
   return (
     <main className="shadow-inner">
       <SectionBookDetails data={book} />

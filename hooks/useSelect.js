@@ -20,7 +20,16 @@ function useSelect() {
         { id: 4, name: '($) GBP' },
     ]
 
-    return { countries, mony }
+    const filtersType = [
+        { id: 1, name: 'براساس نام (نزولی) ↓' },
+        { id: 2, name: 'براساس نام (صعودی) ↑' },
+        { id: 3, name: 'براساس قیمت (کم به زیاد) ↑' },
+        { id: 4, name: 'براساس قیمت (زیاد به کم) ↓' },
+        { id: 5, name: 'براساس محبوبیت (کم به زیاد) ↑' },
+        { id: 6, name: 'براساس محبوبیت (زیاد به کم) ↓' },
+    ]
+
+    return { countries, mony, filtersType }
 
 }
 

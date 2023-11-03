@@ -402,7 +402,7 @@ export const topRatedBooks = [
         discount: 60,
         color: "from-orange-500 to-amber-500",
         shadow: "shadow-lg shadow-orange-500"
-    },    
+    },
     {
         id: 4,
         title: 'کتاب Jessies Song نویسنده خانم جرمی ویلیامسون',
@@ -412,4 +412,20 @@ export const topRatedBooks = [
         score: 5,
         discount: 20, color: "from-green-600 to-lime-500", shadow: "shadow-lg shadow-lime-500"
     }
+]
+
+export const categories = [
+    { id: 1, text: 'ادبیات' },
+    { id: 2, text: 'تاریخ' },
+    { id: 3, text: 'فرهنگ' },
+    { id: 4, text: 'سیاست' },
+    { id: 5, text: 'هنر' },
+    { id: 6, text: 'مدیریت' },
+    { id: 7, text: 'کسب و کار' },
+    { id: 8, text: 'روانشناسی' },
+    { id: 9, text: 'ورزشی' },
+    { id: 10, text: 'آموزشی' },
+    { id: 11, text: 'علوم پایه و مهندسی' },
+    { id: 12, text: 'جغرافیا' },
+    { id: 13, text: 'دین و آیین' },
 ]

@@ -25,16 +25,16 @@ function Header() {
         <header>
             <ContentWrapper>
                 {/* header content */}
-                <div className="flex items-center justify-center py-7 flex-wrap sm:flex-nowrap sm:justify-between gap-10 sm:gap--0">
-                    <div className="">
+                <div className="flex items-center justify-center py-3 flex-wrap sm:flex-nowrap sm:justify-between gap-10 sm:gap--0">
+                    <div>
                         <img src="/logo/logo.png" alt="log" />
                     </div>
                     <div className="flex items-center flex-col gap-4">
                         <div className="flex items-center justify-center gap-5">
-                            <div className="">
+                            <div>
                                 <SelectBox data={countries} />
                             </div>
-                            <div className="">
+                            <div>
                                 <SelectBox data={mony} />
                             </div>
                         </div>

@@ -9,17 +9,17 @@ function Blog() {
             <ContentWrapper>
                 <div className="flex items-start flex-col lg:flex-row gap-10">
                     <div className="basis-[65%]">
-                        <header class="mb-10 not-format shadow-md p-2 rounded-lg border-t-4">
-                            <address class="flex items-center mb-6 not-italic">
-                                <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
-                                    <img class="ml-4 w-16 h-16 rounded-full" src="/logo/avatar-1.png" alt="Jese Leos" />
+                        <header className="mb-10 not-format shadow-md p-2 rounded-lg border-t-4">
+                            <address className="flex items-center mb-6 not-italic">
+                                <div className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
+                                    <img className="ml-4 w-16 h-16 rounded-full" src="/logo/avatar-1.png" alt="Jese Leos" />
                                     <div>
-                                        <a href="#" rel="author" class="text-xl font-bold text-gray-900 dark:text-white">فرشاد محدی</a>
-                                        <p class="text-base text-gray-500 dark:text-gray-400"><time pubdate datetime="2022-02-08" title="February 8th, 2022">Feb. 8, 2022</time></p>
+                                        <a href="#" rel="author" className="text-xl font-bold text-gray-900 dark:text-white">فرشاد محدی</a>
+                                        <p className="text-base text-gray-500 dark:text-gray-400"><time pubdate datetime="2022-02-08" title="February 8th, 2022">Feb. 8, 2022</time></p>
                                     </div>
                                 </div>
                             </address>
-                            <h1 class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">لورم ایپسوم متنی است که ساختگی و چاپ آن مورد است.</h1>
+                            <h1 className="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">لورم ایپسوم متنی است که ساختگی و چاپ آن مورد است.</h1>
                         </header>
                         <main>
                             <article className='shadow-md p-2 rounded-lg border-t-4'>

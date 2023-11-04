@@ -26,9 +26,9 @@ function Header() {
             <ContentWrapper>
                 {/* header content */}
                 <div className="flex items-center justify-center py-3 flex-wrap sm:flex-nowrap sm:justify-between gap-10 sm:gap--0">
-                    <div>
+                    <Link href='/'>
                         <img src="/logo/logo.png" alt="log" />
-                    </div>
+                    </Link>
                     <div className="flex items-center flex-col gap-4">
                         <div className="flex items-center justify-center gap-5">
                             <div>
@@ -40,7 +40,11 @@ function Header() {
                         </div>
                         <div className="flex items-center justify-center gap-5">
                             <MediaIcons />
-                            <Link href={''}>ورود | ثبت نام</Link>
+                            <div className="flex items-center gap-1">
+                                <Link className="hover:text-rose-600 transition-colors" href='/login'>ورود</Link>
+                                |
+                                <Link className="hover:text-rose-600 transition-colors" href='/register'> ثبت نام</Link>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -39,10 +39,10 @@ function Navbar({ openDrawer }) {
                         </div>
                     </div>
                     <div className="min-w-max flex items-center gap-2 border-r-2 pr-10 cursor-pointer hover:shadow-xl p-4">
-                        <div className="text-xl flex items-center gap-1">
+                        <Link href={'/payment'} className="text-xl flex items-center gap-1">
                             سبد خرید
                             <div className="ml-2 font-semibold">(3)</div>
-                        </div>
+                        </Link>
                         <div className=" bg-rose-500 text-white text-2xl rounded-full rounded-se-md p-2">
                             <AiOutlineShoppingCart />
                         </div>

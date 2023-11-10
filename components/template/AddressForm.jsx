@@ -3,12 +3,12 @@ import React from 'react'
 function AddressForm({ setActiveStep }) {
     return (
         <div className='my-10'>
-            <div className="w-full md:w-96 md:max-w-full mx-auto">
-                <div className="p-6 shadow-lg border bg-gray-50 sm:rounded-md">
+            <div className="w-full md:w-1/2 md:max-w-full mx-auto">
+                <div className="p-6 shadow-lg border bg-gray-100 sm:rounded-md">
                     <form
                         method="POST"
                         action="https://herotofu.com/start"
-                        enctype="multipart/form-data"
+                        encType="multipart/form-data"
                     >
                         <label className="block mb-6">
                             <span className="text-gray-700">نام*</span>

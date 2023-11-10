@@ -14,10 +14,10 @@ function Footer() {
                         </h3>
                         <ul className='font-semibold flex items-center gap-3 flex-wrap md:bg-white rounded-lg md:text-red-600 px-2'>
                             <li className='hover:text-rose-950 transition-colors'><Link href={'/'}>خانه</Link></li>
-                            <li className='hover:text-rose-950 transition-colors'><Link href={'/'}>صفحات</Link></li>
-                            <li className='hover:text-rose-950 transition-colors'><Link href={'/'}>درباره ما</Link></li>
-                            <li className='hover:text-rose-950 transition-colors'><Link href={'/'}>قوانین</Link></li>
-                            <li className='hover:text-rose-950 transition-colors'><Link href={'/'}>تماس با ما</Link></li>
+                            <li className='hover:text-rose-950 transition-colors'><Link href={'/books'}>فروشگاه</Link></li>
+                            <li className='hover:text-rose-950 transition-colors'><Link href={'/aboutUs'}>درباره ما</Link></li>
+                            <li className='hover:text-rose-950 transition-colors'><Link href={'/login'}>ورود</Link></li>
+                            <li className='hover:text-rose-950 transition-colors'><Link href={'/contactUs'}>تماس با ما</Link></li>
                         </ul>
                         <p>
                             این بخشی از یک نوشتار آزمایشی صرفا برای پر کردن این ناحیه است. جهت عضویت در خبرنامه ایمیل خود را وارد کنید.

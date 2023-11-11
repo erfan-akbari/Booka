@@ -5,10 +5,13 @@ import { featured } from "../../Data/HomData"
 import ContentWrapper from "@/components/module/ContentWrapper";
 import Tab from "@/components/template/Tab";
 
+const fs = require('fs')
+const path = require('path')
+
 export default function BookDetails({ book }) {
   return (
     <main className="shadow-inner">
-      <SectionBookDetails data={book} />
+      <SectionBookDetails data={...book} />
       <ContentWrapper>
         <Tab />
         <Carousel data={featured} title={'محصولات مرتبط'} />
@@ -18,7 +21,11 @@ export default function BookDetails({ book }) {
 }
 
 export async function getStaticPaths() {
-  const paths = books.map(book => {
+  const dbAddress = path.join(process.cwd(), 'Data', 'db.json')
+  const data = fs.readFileSync(dbAddress)
+  const parsedData = JSON.parse(data)
+
+  const paths = parsedData.books.slice(0, 3).map(book => {
     return {
       params: { id: String(book.id) }
     }
@@ -26,16 +33,27 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   }
 }
 
 export async function getStaticProps({ params }) {
-  const book = books.find(book => book.id === +params.id)
+  const dbAddress = path.join(process.cwd(), 'Data', 'db.json')
+  const data = fs.readFileSync(dbAddress)
+  const parsedData = JSON.parse(data)
+
+  const [findBook] = parsedData.books.filter(book => String(book.id) === String(params.id))
+
+  if (!findBook) {
+    return {
+      notFound: true
+    }
+  }
 
   return {
     props: {
-      book
-    }
+      book: findBook
+    },
+    revalidate: 60 * 60 * 12 // 43,200
   }
 }

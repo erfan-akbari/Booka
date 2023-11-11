@@ -2,10 +2,12 @@ import CardV2 from '@/components/module/CardV2'
 import ContentWrapper from '@/components/module/ContentWrapper'
 import SelectBox from '@/components/module/SelectBox';
 import SidebarV2 from '@/components/module/SidebarV2'
-import { categories, books } from '@/Data/HomData'
 import useSelect from '@/hooks/useSelect';
 
-export default function Books() {
+const fs = require('fs')
+const path = require('path')
+
+export default function Books({ categories, books }) {
 
   const { filtersType } = useSelect()
 
@@ -31,4 +33,18 @@ export default function Books() {
       </ContentWrapper>
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const dbPath = path.join(process.cwd(), 'Data', 'db.json')
+  const data = fs.readFileSync(dbPath)
+  const parsedData = JSON.parse(data)
+
+  return {
+    props: {
+      books: parsedData.books,
+      categories: parsedData.categories
+    },
+    revalidate: 60 * 60 * 12 // 43,200
+  }
 }

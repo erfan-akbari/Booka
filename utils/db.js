@@ -5,7 +5,7 @@ const connectToDB = async () => {
         if (mongoose.connections[0].readyState) {
             return false
         } else {
-            await mongoose.connect("mongodb://localhost:27017/booka-db")
+            await mongoose.connect("mongodb://127.0.0.1:27017/booka-db")
             console.log('Connected to DB successfully :))')
         }
     } catch (error) {

@@ -6,8 +6,8 @@ function Register() {
   const [email, setEmail] = useState('')
 
   const submitHandle = async (event) => {
-    console.log("clicked");
     event.preventDefault()
+
     if (username && password && email) {
       const res = await fetch(`/api/auth/register`, {
         method: 'POST',
@@ -20,12 +20,14 @@ function Register() {
           email,
         })
       })
-      console.log(res.status);
+
+      const data = await res.json()
+
       if (res.status === 201) {
         alert('ثبت نام با موفقیت انجام شد')
-        // localStorage.setItem('ID', data.id)
+        localStorage.setItem('ID', data?.user._id)
       } else {
-        alert('خطا, مشکلی پیش آمده')
+        alert('خطا, کاربری با این مشخصات وجود دارد , لطفا دوباره تلاش کنید')
       }
 
       setUsername('')

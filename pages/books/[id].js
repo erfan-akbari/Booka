@@ -1,14 +1,9 @@
-import { books } from "@/Data/HomData"
 import Carousel from "@/components/template/Carousel";
 import SectionBookDetails from "@/components/template/SectionBookDetails";
-import { featured } from "../../Data/HomData"
 import ContentWrapper from "@/components/module/ContentWrapper";
 import Tab from "@/components/template/Tab";
 
-const fs = require('fs')
-const path = require('path')
-
-export default function BookDetails({ book }) {
+export default function BookDetails({ book, featured }) {
   return (
     <main className="shadow-inner">
       <SectionBookDetails data={...book} />
@@ -52,7 +47,8 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      book: findBook
+      book: findBook,
+      featured: parsedData.featured
     },
     revalidate: 60 * 60 * 12 // 43,200
   }

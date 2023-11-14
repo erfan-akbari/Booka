@@ -1,4 +1,3 @@
-import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import CardV3 from '../module/CardV3';
@@ -21,8 +20,8 @@ function Carousel({ data, title }) {
                 spaceBetween={30}
                 className="mySwiper"
             >
-                {data?.map(book => (
-                    <SwiperSlide key={book.id}>
+                {data.map(book => (
+                    <SwiperSlide key={book._id}>
                         <CardV3 {...book} />
                     </SwiperSlide>
                 ))}

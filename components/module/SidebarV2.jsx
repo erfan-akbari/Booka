@@ -33,7 +33,7 @@ function SidebarV2({ categories }) {
                 <AccordionBody>
                     <ul>
                         {categories.map(cat => (
-                            <li key={cat.id}>
+                            <li key={cat._id}>
                                 {cat.text}
                             </li>
                         ))}

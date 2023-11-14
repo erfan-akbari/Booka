@@ -1,18 +1,19 @@
-const fs = require('fs')
-const path = require('path')
+import connectToDB from "@/utils/db"
+import categoriesModel from "@/models/categories"
 
-const handler = (req, res) => {
-    const dbPath = path.join(process.cwd(), 'Data', 'db.json')
-    const data = fs.readFileSync(dbPath)
-    const parsedData = JSON.parse(data)
+const handler = async (req, res) => {
+    connectToDB()
 
     if (req.method === 'GET') {
-        return res
-        .status(200)
-        .json(parsedData.categories)
+        try {
+            const categories = await categoriesModel.find()
+            return res.status(200).json(categories)
+        } catch (error) {
+            return res.status(500).json({ message: 'server error' })
+        }
     }
 
-    return res.json({ message: 'not found' })
+    return res.json({ message: 'http method not found' })
 }
 
 export default handler

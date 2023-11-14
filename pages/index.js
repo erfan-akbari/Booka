@@ -6,16 +6,19 @@ import Carousel from "@/components/template/Carousel"
 import NewBooks from "@/components/template/NewBooks"
 import TopPublishers from "@/components/template/TopPublishers"
 
-const fs = require('fs')
-const path = require('path')
+import connectToDB from "@/utils/db"
+import booksModel from "@/models/book"
+import bookBannerModel from "@/models/bookBanner"
+import featuredModel from "@/models/featured"
+import topRatedBooksModel from "@/models/topRatedBooks"
 
-export default function Home({ booksBanner, featured, books, topRatedBooks }) {
+export default function Home({ bookBanner, featured, books, topRatedBooks }) {
   return (
     <div>
       <HeroBanner />
       <ContentWrapper>
         <main>
-          <BooksBanner data={booksBanner} />
+          <BooksBanner data={bookBanner} />
           <Carousel data={featured} title={'فروش ویژه جشنواره'} />
           <NewBooks data={books} />
           <Carousel data={topRatedBooks} title={'پرامتیازترین کتاب‌ها'} />
@@ -28,16 +31,18 @@ export default function Home({ booksBanner, featured, books, topRatedBooks }) {
 }
 
 export async function getStaticProps() {
-  const dbPath = path.join(process.cwd(), 'Data', 'db.json')
-  const data = fs.readFileSync(dbPath)
-  const parsedData = JSON.parse(data)
+  connectToDB()
+  const books = await booksModel.find()
+  const bookBanner = await bookBannerModel.find()
+  const featured = await featuredModel.find()
+  const topRatedBooks = await topRatedBooksModel.find()
 
   return {
     props: {
-      booksBanner: parsedData.booksBanner,
-      featured: parsedData.featured,
-      books: parsedData.books,
-      topRatedBooks: parsedData.topRatedBooks
+      books: JSON.parse(JSON.stringify(books)),
+      bookBanner: JSON.parse(JSON.stringify(bookBanner)),
+      featured: JSON.parse(JSON.stringify(featured)),
+      topRatedBooks: JSON.parse(JSON.stringify(topRatedBooks)),
     },
     revalidate: 60 * 60 * 12 // 43,200
   }

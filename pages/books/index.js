@@ -3,9 +3,9 @@ import ContentWrapper from '@/components/module/ContentWrapper'
 import SelectBox from '@/components/module/SelectBox';
 import SidebarV2 from '@/components/module/SidebarV2'
 import useSelect from '@/hooks/useSelect';
-
-const fs = require('fs')
-const path = require('path')
+import connectToDB from '@/utils/db';
+import booksModel from "@/models/book"
+import categoriesModel from "@/models/categories"
 
 export default function Books({ categories, books }) {
 
@@ -24,8 +24,8 @@ export default function Books({ categories, books }) {
               </div>
             </div>
             <div className='w-full lg:basis-[75%] flex flex-col items-center md:grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
-              {books.map(book => (
-                <CardV2 key={book.id} {...book} />
+              {books?.map(book => (
+                <CardV2 key={book._id} {...book} />
               ))}
             </div>
           </main>
@@ -36,14 +36,14 @@ export default function Books({ categories, books }) {
 }
 
 export async function getStaticProps() {
-  const dbPath = path.join(process.cwd(), 'Data', 'db.json')
-  const data = fs.readFileSync(dbPath)
-  const parsedData = JSON.parse(data)
+  connectToDB()
+  const books = await booksModel.find()
+  const categories = await categoriesModel.find()
 
   return {
     props: {
-      books: parsedData.books,
-      categories: parsedData.categories
+      books: JSON.parse(JSON.stringify(books)),
+      categories: JSON.parse(JSON.stringify(categories)),
     },
     revalidate: 60 * 60 * 12 // 43,200
   }

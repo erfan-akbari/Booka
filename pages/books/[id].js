@@ -2,6 +2,8 @@ import Carousel from "@/components/template/Carousel";
 import SectionBookDetails from "@/components/template/SectionBookDetails";
 import ContentWrapper from "@/components/module/ContentWrapper";
 import Tab from "@/components/template/Tab";
+import connectToDB from "@/utils/db";
+import booksModel from "@/models/book"
 
 export default function BookDetails({ book, featured }) {
   return (
@@ -9,20 +11,19 @@ export default function BookDetails({ book, featured }) {
       <SectionBookDetails data={...book} />
       <ContentWrapper>
         <Tab />
-        <Carousel data={featured} title={'محصولات مرتبط'} />
+        {/* <Carousel data={featured} title={'محصولات مرتبط'} /> */}
       </ContentWrapper>
     </main>
   )
 }
 
 export async function getStaticPaths() {
-  const dbAddress = path.join(process.cwd(), 'Data', 'db.json')
-  const data = fs.readFileSync(dbAddress)
-  const parsedData = JSON.parse(data)
+  connectToDB()
+  const books = await booksModel.find()
 
-  const paths = parsedData.books.slice(0, 3).map(book => {
+  const paths = books.slice(0, 3)?.map(book => {
     return {
-      params: { id: String(book.id) }
+      params: { id: String(book._id) }
     }
   })
 
@@ -33,13 +34,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const dbAddress = path.join(process.cwd(), 'Data', 'db.json')
-  const data = fs.readFileSync(dbAddress)
-  const parsedData = JSON.parse(data)
+  connectToDB()
+  const book = await booksModel.findOne({ _id: params.id })
 
-  const [findBook] = parsedData.books.filter(book => String(book.id) === String(params.id))
-
-  if (!findBook) {
+  if (!book) {
     return {
       notFound: true
     }
@@ -47,8 +45,8 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      book: findBook,
-      featured: parsedData.featured
+      book: JSON.parse(JSON.stringify(book))
+      // featured: parsedData.featured
     },
     revalidate: 60 * 60 * 12 // 43,200
   }

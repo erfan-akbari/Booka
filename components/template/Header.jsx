@@ -3,23 +3,39 @@ import ContentWrapper from "../module/ContentWrapper"
 import useSelect from "@/hooks/useSelect";
 import Link from "next/link";
 import MediaIcons from "../module/MediaIcons";
-import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { CiSearch } from 'react-icons/ci'
-import { IoMenu } from 'react-icons/io5'
 import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import { useRouter } from "next/router";
 
 function Header() {
     const { countries, mony } = useSelect();
-    const [open, setOpen] = useState(false);
     const { pathname } = useRouter()
+    const [open, setOpen] = useState(false);
+    const [isLoginUser, setIsLoginUser] = useState(false);
+    const [userData, setUserData] = useState(null);
 
     const openDrawer = () => setOpen(prev => !prev);
 
     useEffect(() => {
         setOpen(false)
+        getMe()
     }, [pathname])
+
+    useEffect(() => {
+    }, [])
+
+    const getMe = async () => {
+        const userID = localStorage.getItem('ID')
+        if (userID) {
+            const res = await fetch(`/api/users/${userID}`)
+            const data = await res.json()
+            setUserData(data)
+            setIsLoginUser(true)
+        } else {
+            setIsLoginUser(false)
+        }
+    }
 
     return (
         <header>
@@ -40,11 +56,17 @@ function Header() {
                         </div>
                         <div className="flex items-center justify-center gap-5">
                             <MediaIcons />
-                            <div className="flex items-center gap-1">
-                                <Link className="hover:text-rose-600 transition-colors" href='/login'>ورود</Link>
-                                |
-                                <Link className="hover:text-rose-600 transition-colors" href='/register'> ثبت نام</Link>
-                            </div>
+                            {isLoginUser ? (
+                                <div className="bg-gradient-to-r from-emerald-500 to-lime-600 text-white px-5 py-1 font-semibold rounded-lg">
+                                    <Link href={''}>{userData.username}</Link>
+                                </div>
+                            ) : (
+                                <div className="flex items-center gap-1">
+                                    <Link className="hover:text-rose-600 transition-colors" href='/login'>ورود</Link>
+                                    |
+                                    <Link className="hover:text-rose-600 transition-colors" href='/register'> ثبت نام</Link>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>

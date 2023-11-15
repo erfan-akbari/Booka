@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Router from 'next/router'
 
 function Register() {
   const [username, setUsername] = useState('')
@@ -26,6 +27,7 @@ function Register() {
       if (res.status === 201) {
         alert('ثبت نام با موفقیت انجام شد')
         localStorage.setItem('ID', data?.user._id)
+        Router.push('/')
       } else {
         alert('خطا, کاربری با این مشخصات وجود دارد , لطفا دوباره تلاش کنید')
       }

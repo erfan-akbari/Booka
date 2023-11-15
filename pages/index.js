@@ -19,9 +19,9 @@ export default function Home({ bookBanner, featured, books, topRatedBooks }) {
       <ContentWrapper>
         <main>
           <BooksBanner data={bookBanner} />
-          <Carousel data={featured} title={'فروش ویژه جشنواره'} />
+          <Carousel data={featured} title={'فروش ویژه جشنواره'} type={'featured'} />
           <NewBooks data={books} />
-          <Carousel data={topRatedBooks} title={'پرامتیازترین کتاب‌ها'} />
+          <Carousel data={topRatedBooks} title={'پرامتیازترین کتاب‌ها'} type={'topRated'} />
           <BloggSlider title={'آخرین مطالب سایت'} />
           <TopPublishers title={'ناشران برتر'} />
         </main>

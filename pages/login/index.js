@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Router from 'next/router'
 
 function Login() {
   const [username, setUsername] = useState('')
@@ -20,9 +21,10 @@ function Login() {
       })
       const data = await res.json()
       
-      if (res.status === 201) {
+      if (res.status === 200) {
         alert(' ورود با موفقیت انجام شد')
-        localStorage.setItem('ID', data.id)
+        localStorage.setItem('ID', data._id)
+        Router.push('/')
       } else {
         alert('کاربری با این مشخصات یافت نشد ')
       }

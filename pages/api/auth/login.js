@@ -1,25 +1,24 @@
-const fs = require('fs')
-const path = require('path')
+import usersModel from '@/models/user'
+import connectToDB from '@/utils/db'
 
-const handler = (req, res) => {
+const handler = async (req, res) => {
+    connectToDB()
+
     const { method } = req
     const { username, password } = req.body
 
-    const dbPath = path.join(process.cwd(), 'Data', 'db.json')
-    const data = fs.readFileSync(dbPath)
-    const parsedData = JSON.parse(data)
-
     switch (method) {
         case 'POST': {
-            const isInUser = parsedData.users.some(user => user.username === username)
 
-            if (isInUser && (username && password)) {
-
-                const findUser = parsedData.users.filter(user => user.username === username)
-                res.status(201).json(...findUser)
-                
+            const user = await usersModel.findOne({ username, password })
+            if (username && password) {
+                if (user) {
+                    res.status(200).json(user)
+                } else {
+                    res.status(401).json({ message: 'There is no one with this profile' })
+                }
             } else {
-                res.status(404).json({ message: 'noy found user' })
+                res.status(422).json({ message: 'request body is not found' })
             }
             break;
         }

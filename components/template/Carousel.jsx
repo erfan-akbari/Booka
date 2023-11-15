@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import CardV3 from '../module/CardV3';
 
-function Carousel({ data, title }) {
+function Carousel({ data, title, type }) {
     return (
         <>
         <section className="py-10">
@@ -22,7 +22,7 @@ function Carousel({ data, title }) {
             >
                 {data.map(book => (
                     <SwiperSlide key={book._id}>
-                        <CardV3 {...book} />
+                        <CardV3 {...book} type={type} />
                     </SwiperSlide>
                 ))}
             </Swiper>

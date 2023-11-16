@@ -1,14 +1,11 @@
 import Link from "next/link";
 import { AiOutlineShoppingCart } from 'react-icons/ai'
-import { CiSearch } from 'react-icons/ci'
 import { IoMenu } from 'react-icons/io5'
+import { IoClose } from "react-icons/io5";
 import ContentWrapper from "../module/ContentWrapper";
-import { useState } from "react";
+import SearchBox from "../module/SearchBox";
 
-function Navbar({ openDrawer }) {
-
-    const [search, setSearch] = useState('')
-
+function Navbar({ open, openDrawer }) {
     return (
         <nav className='border-t z-50'>
             <ContentWrapper>
@@ -22,10 +19,7 @@ function Navbar({ openDrawer }) {
                                 <Link href={'/books'} className="px-1 hover:text-rose-500 transition-colors">فروشگاه</Link>
                             </li>
                             <li className="hidden lg:block">
-                                <Link href={'/blogs'} className="px-1 hover:text-rose-500 transition-colors">بلاگ</Link>
-                            </li>
-                            <li className="hidden lg:block">
-                                <Link href={'/'} className="px-1 hover:text-rose-500 transition-colors">امکانات</Link>
+                                <Link href={'/blogs'} className="px-1 hover:text-rose-500 transition-colors">مقاله ها</Link>
                             </li>
                             <li className="hidden lg:block">
                                 <Link href={'/aboutUs'} className="px-1 hover:text-rose-500 transition-colors">درباره ما</Link>
@@ -34,21 +28,10 @@ function Navbar({ openDrawer }) {
                                 <Link href={'/contactUs'} className="px-1 hover:text-rose-500 transition-colors">تماس با ما</Link>
                             </li>
                             <li className="lg:hidden text-3xl cursor-pointer" onClick={openDrawer}>
-                                <IoMenu />
+                                {open ? <IoClose /> : <IoMenu />}
                             </li>
                         </ul>
-                        <div className="hidden lg:flex items-center border py-1.5 px-3 rounded-full ml-16">
-                            <input
-                                className="outline-none border-none bg-transparent"
-                                type="text"
-                                placeholder="جستجو..."
-                                value={search}
-                                onChange={e => setSearch(e.target.value)}
-                            />
-                            <Link className="hover:text-red-600" href={`/search?q=${search}`}>
-                                <CiSearch />
-                            </Link>
-                        </div>
+                        <SearchBox styles={'hidden lg:flex ml-8'} />
                     </div>
                     <div className="min-w-max flex items-center gap-2 border-r-2 pr-10 cursor-pointer hover:shadow-xl p-4">
                         <Link href={'/payment'} className="text-xl flex items-center gap-1">

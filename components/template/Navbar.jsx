@@ -3,8 +3,12 @@ import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { CiSearch } from 'react-icons/ci'
 import { IoMenu } from 'react-icons/io5'
 import ContentWrapper from "../module/ContentWrapper";
+import { useState } from "react";
 
 function Navbar({ openDrawer }) {
+
+    const [search, setSearch] = useState('')
+
     return (
         <nav className='border-t z-50'>
             <ContentWrapper>
@@ -34,8 +38,16 @@ function Navbar({ openDrawer }) {
                             </li>
                         </ul>
                         <div className="hidden lg:flex items-center border py-1.5 px-3 rounded-full ml-16">
-                            <input className="outline-none border-none bg-transparent" type="text" placeholder="جستجو..." />
-                            <CiSearch />
+                            <input
+                                className="outline-none border-none bg-transparent"
+                                type="text"
+                                placeholder="جستجو..."
+                                value={search}
+                                onChange={e => setSearch(e.target.value)}
+                            />
+                            <Link className="hover:text-red-600" href={`/search?q=${search}`}>
+                                <CiSearch />
+                            </Link>
                         </div>
                     </div>
                     <div className="min-w-max flex items-center gap-2 border-r-2 pr-10 cursor-pointer hover:shadow-xl p-4">

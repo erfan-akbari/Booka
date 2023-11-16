@@ -4,11 +4,25 @@ import booksModel from "@/models/book"
 const handler = async (req, res) => {
     connectToDB()
     if (req.method === 'GET') {
-        const books = await booksModel.find()
-        if (books) {
-            return res.status(200).json(books)
+        if (req.query.q) {
+
+            const { q } = req.query
+            const books = await booksModel.find({ title: { $regex: q } })
+            if (books) {
+                return res.status(200).json(books)
+            } else {
+                return res.status(500).json({ message: 'server error' })
+            }
+            
         } else {
-            return res.status(500).json({ message: 'server error' })
+
+            const books = await booksModel.find()
+            if (books) {
+                return res.status(200).json(books)
+            } else {
+                return res.status(500).json({ message: 'server error' })
+            }
+            
         }
     }
     return res.json({ message: 'http method not found' })

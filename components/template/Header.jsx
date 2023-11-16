@@ -3,10 +3,11 @@ import ContentWrapper from "../module/ContentWrapper"
 import useSelect from "@/hooks/useSelect";
 import Link from "next/link";
 import MediaIcons from "../module/MediaIcons";
-import { CiSearch } from 'react-icons/ci'
 import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import { useRouter } from "next/router";
+import SearchBox from "../module/SearchBox";
+import MenuMobile from "./MenuMobile";
 
 function Header() {
     const { countries, mony } = useSelect();
@@ -71,36 +72,8 @@ function Header() {
                     </div>
                 </div>
             </ContentWrapper>
-            {/* navbar */}
-            <Navbar openDrawer={openDrawer} />
-            <div className={`transition-all duration-300 ${open ? 'h-fit  opacity-100 mb-5' : 'h-0 opacity-0'} text-lg py-2`} >
-                <ContentWrapper>
-                    <div className="flex items-center border py-1.5 px-3 rounded-full mb-5">
-                        <input className="w-full outline-none border-none" type="text" placeholder="جستجو..." />
-                        <CiSearch />
-                    </div>
-                    <ul className="space-y-5 text-gray-400 font-semibold divide-y-4">
-                        <li>
-                            <Link href={'/'} className="pt-2 hover:text-rose-500 transition-colors">صفحه اصلی</Link>
-                        </li>
-                        <li>
-                            <Link href={'/books'} className="pt-2 hover:text-rose-500 transition-colors">فروشگاه </Link>
-                        </li>
-                        <li>
-                            <Link href={'/blogs'} className="pt-2 hover:text-rose-500 transition-colors">بلاگ </Link>
-                        </li>
-                        <li>
-                            <Link href={'/'} className="pt-2 hover:text-rose-500 transition-colors">امکانات</Link>
-                        </li>
-                        <li>
-                            <Link href={'/aboutUs'} className="pt-2 hover:text-rose-500 transition-colors">درباره ما</Link>
-                        </li>
-                        <li>
-                            <Link href={'/contactUs'} className="pt-2 hover:text-rose-500 transition-colors">تماس با ما</Link>
-                        </li>
-                    </ul>
-                </ContentWrapper>
-            </div>
+            <Navbar open={open} openDrawer={openDrawer} />
+            <MenuMobile open={open} />
         </header>
     )
 }

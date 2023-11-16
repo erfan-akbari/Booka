@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import MediaIcons from '../module/MediaIcons'
 import ContentWrapper from '../module/ContentWrapper'
 import Link from 'next/link'
 
 function Footer() {
+
+    const [email, setEmail] = useState('')
+
+    const submitNewsLetter = async () => {
+        const res = await fetch(`/api/newsletter`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email })
+        })
+        if (res.status === 201) {
+            alert('شما با موفقیت در خبر نامه ما عضو شدید :))')
+            setEmail('')
+        }
+    }
+
     return (
         <footer className='bg-gradient-to-t from-red-500 to-rose-700 text-white py-10'>
             <ContentWrapper>
@@ -35,8 +52,18 @@ function Footer() {
                     <div className="flex flex-col gap-5 items-start basis-[30%]">
                         <h3 className="text-2xl font-bold">عضویت در خبرنامه</h3>
                         <div className="rounded-lg overflow-hidden flex items-start bg-white">
-                            <input type="text" className='bg-white w-52  text-gray-400 outline-none border-none px-2' />
-                            <button className='text-red-600 bg-red-200 px-2 font-bold'>ارسال</button>
+                            <input
+                                type="text"
+                                value={email}
+                                onChange={e => setEmail(e.target.value)}
+                                placeholder='ایمیل خود را وارد نمایید'
+                                className='bg-white w-52  text-gray-600 font-semibold outline-none border-none px-2' />
+                            <button
+                                onClick={submitNewsLetter}
+                                className='bg-gradient-to-r from-emerald-500 to-lime-600 text-white font-bold px-3'
+                            >
+                                ارسال
+                            </button>
                         </div>
                         <p>
                             این بخشی از یک نوشتار آزمایشی صرفا برای پر کردن این ناحیه است. جهت عضویت در خبرنامه ایمیل خود را وارد کنید.

@@ -11,7 +11,7 @@ import MenuMobile from "./MenuMobile";
 
 function Header() {
     const { countries, mony } = useSelect();
-    const { pathname } = useRouter()
+    const { asPath } = useRouter()
     const [open, setOpen] = useState(false);
     const [isLoginUser, setIsLoginUser] = useState(false);
     const [userData, setUserData] = useState(null);
@@ -21,10 +21,7 @@ function Header() {
     useEffect(() => {
         setOpen(false)
         getMe()
-    }, [pathname])
-
-    useEffect(() => {
-    }, [])
+    }, [asPath])
 
     const getMe = async () => {
         const userID = localStorage.getItem('ID')

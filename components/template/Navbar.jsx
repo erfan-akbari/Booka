@@ -4,16 +4,39 @@ import { IoMenu } from 'react-icons/io5'
 import { IoClose } from "react-icons/io5";
 import ContentWrapper from "../module/ContentWrapper";
 import SearchBox from "../module/SearchBox";
+import { useEffect, useState } from "react";
 
 function Navbar({ open, openDrawer }) {
+    const [categories, setCategories] = useState()
+
+    useEffect(() => {
+        getCategory()
+    }, [])
+
+    const getCategory = async () => {
+        const res = await fetch(`/api/categories`)
+        const data = await res.json()
+        setCategories(data)
+    }
+
     return (
         <nav className='border-t z-50'>
             <ContentWrapper>
                 <div className="flex items-center justify-between">
                     <div className="w-full flex items-center justify-between">
-                        <ul className="flex items-center gap-5 text-gray-400 font-semibold">
+                        <ul className="flex items-center gap-3 text-gray-400 font-semibold">
                             <li className="hidden lg:block">
                                 <Link href={'/'} className="px-1 hover:text-rose-500 transition-colors">صفحه اصلی</Link>
+                            </li>
+                            <li className="hidden lg:block group relative">
+                                <Link href={'/'} className="px-1 hover:text-rose-500 transition-colors">دسته بندی</Link>
+                                <ul className="hidden group-hover:block absolute top-[110%] lg:w-[800px] xl:w-[1000px] bg-gray-50 pl-4 pr-2 py-2 shadow-lg z-10 border rounded-lg space-y-2">
+                                    {categories?.map(cat => (
+                                        <li key={cat._id} className="cursor-pointer hover:text-rose-600">
+                                            <Link href={`/books?cat=${cat.route}`}>{cat.text}</Link>
+                                        </li>
+                                    ))}
+                                </ul>
                             </li>
                             <li className="hidden lg:block">
                                 <Link href={'/books'} className="px-1 hover:text-rose-500 transition-colors">فروشگاه</Link>
@@ -31,7 +54,7 @@ function Navbar({ open, openDrawer }) {
                                 {open ? <IoClose /> : <IoMenu />}
                             </li>
                         </ul>
-                        <SearchBox styles={'hidden lg:flex ml-8'} />
+                        <SearchBox styles={'hidden lg:flex ml-5'} />
                     </div>
                     <div className="min-w-max flex items-center gap-2 border-r-2 pr-10 cursor-pointer hover:shadow-xl p-4">
                         <Link href={'/payment'} className="text-xl flex items-center gap-1">

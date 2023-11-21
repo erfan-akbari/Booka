@@ -5,11 +5,11 @@ function CardV2({ _id, poster, title, price, score, shadow, color }) {
     return (
         <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <Link href={`/books/${_id}`}>
-                <img className="p-8 rounded-t-lg" src={poster} alt="product image" />
+                <img className="w-full h-[300px] p-8 rounded-t-lg" src={poster} alt="product image" />
             </Link>
             <div className="px-5 pb-5">
                 <Link href={`/books/${_id}`}>
-                    <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{title}</h5>
+                    <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white overflow-hidden whitespace-nowrap text-ellipsis">{title}</h5>
                 </Link>
                 <div className="flex items-center mt-2.5 mb-5">
                     <svg className="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">

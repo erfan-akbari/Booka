@@ -15,16 +15,17 @@ import publicationsModel from "@/models/publication"
 
 export default function Books(props) {
   const { filtersType } = useSelect()
-  const [books, setBooks] = useState(props.books)
+  const { books } = props
+  // const [books, setBooks] = useState(props.books)
   const [isloading, setIsLoading] = useState(false)
-  const [value, setValue] = useState(null)
+  const [value, setValue] = useState('')
 
-
-  useEffect(() => {
+  const changeHandler = (value) => {
+    setValue(value)
     if (value) {
       sortBooksHandler(value)
     }
-  }, [value])
+  }
 
   useEffect(() => {
     setIsLoading(true)
@@ -35,39 +36,36 @@ export default function Books(props) {
   }, 3000);
 
   const sortBooksHandler = async (val) => {
-    const res = await fetch(`/api/books`)
-    const data = await res.json()
-    let sortedData = data
+
     switch (val) {
       case '1':
-        sortedData = [...data].sort((a, b) => b.discount - a.discount)
+        books.sort((a, b) => b.discount - a.discount)
         break;
 
       case '2':
-        sortedData = [...data].sort((a, b) => a.discount - b.discount)
+        books.sort((a, b) => a.discount - b.discount)
         break;
 
       case '3':
-        sortedData = [...data].sort((a, b) => a.price - b.price)
+        books.sort((a, b) => a.price - b.price)
         break;
 
       case '4':
-        sortedData = [...data].sort((a, b) => b.price - a.price)
+        books.sort((a, b) => b.price - a.price)
         break;
 
       case '5':
-        sortedData = [...data].sort((a, b) => a.score - b.score)
+        books.sort((a, b) => a.score - b.score)
         break;
 
       case '6':
-        sortedData = [...data].sort((a, b) => b.score - a.score)
+        books.sort((a, b) => b.score - a.score)
         break;
 
       default:
-        sortedData = data
+        books
         break;
     }
-    setBooks(sortedData)
   }
 
   return (
@@ -79,7 +77,7 @@ export default function Books(props) {
             <div className="flex justify-between mb-5">
               <h2 className='text-red-600 text-2xl'>همه محصولات</h2>
               <div className="w-72">
-                <SelectBox value={value} setValue={setValue} data={filtersType} />
+                <SelectBox value={value} data={filtersType} changeHandler={changeHandler} />
               </div>
             </div>
             {!isloading ? (

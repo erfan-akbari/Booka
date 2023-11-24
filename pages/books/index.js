@@ -12,20 +12,25 @@ import categoriesModel from "@/models/categories"
 import writersModel from "@/models/writer"
 import translatorsModel from "@/models/translator"
 import publicationsModel from "@/models/publication"
+import Title from '@/components/module/Title';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 export default function Books(props) {
-  const { filtersType } = useSelect()
-  const { books } = props
-  // const [books, setBooks] = useState(props.books)
-  const [isloading, setIsLoading] = useState(false)
-  const [value, setValue] = useState('')
+  const { filtersType } = useSelect();
+  const { asPath, query } = useRouter();
+  const [isloading, setIsLoading] = useState(false);
+  const [value, setValue] = useState('');
+  const { books, btnCount } = props;
 
   const changeHandler = (value) => {
-    setValue(value)
-    if (value) {
-      sortBooksHandler(value)
-    }
+    setValue(value);
+    sortBooksHandler(+value);
   }
+
+  useEffect(() => {
+    setValue('')
+  }, [asPath])
 
   useEffect(() => {
     setIsLoading(true)
@@ -33,37 +38,37 @@ export default function Books(props) {
 
   setTimeout(() => {
     setIsLoading(false)
-  }, 3000);
+  }, 1500);
 
   const sortBooksHandler = async (val) => {
 
     switch (val) {
-      case '1':
-        books.sort((a, b) => b.discount - a.discount)
+      case 1:
+        books.sort((a, b) => b.discount - a.discount);
         break;
 
-      case '2':
-        books.sort((a, b) => a.discount - b.discount)
+      case 2:
+        books.sort((a, b) => a.discount - b.discount);
         break;
 
-      case '3':
-        books.sort((a, b) => a.price - b.price)
+      case 3:
+        books.sort((a, b) => a.price - b.price);
         break;
 
-      case '4':
-        books.sort((a, b) => b.price - a.price)
+      case 4:
+        books.sort((a, b) => b.price - a.price);
         break;
 
-      case '5':
-        books.sort((a, b) => a.score - b.score)
+      case 5:
+        books.sort((a, b) => a.score - b.score);
         break;
 
-      case '6':
-        books.sort((a, b) => b.score - a.score)
+      case 6:
+        books.sort((a, b) => b.score - a.score);
         break;
 
       default:
-        books
+        books.reverse()
         break;
     }
   }
@@ -75,7 +80,7 @@ export default function Books(props) {
           <SidebarV2 data={props} />
           <main className='w-full lg:basis-[75%] flex flex-col gap-6'>
             <div className="flex justify-between mb-5">
-              <h2 className='text-red-600 text-2xl'>همه محصولات</h2>
+              <Title value={'همه محصولات'} />
               <div className="w-72">
                 <SelectBox value={value} data={filtersType} changeHandler={changeHandler} />
               </div>
@@ -96,6 +101,18 @@ export default function Books(props) {
                 <LoaderShimmer />
               </div>
             )}
+            <div className="flex flex-wrap items-center gap-3 w-full justify-center my-5">
+              {btnCount > 1 &&
+                Array.from({ length: btnCount }).map((val, index) => (
+                  <Link
+                    href={`/books?page=${index + 1}`}
+                    key={index + 1}
+                    className={`${+query.page === +index + 1 ? 'bg-rose-600 text-white' : 'bg-red-100 text-rose-950'} shadow-md shadow-gray-400 hover:shadow-rose-600 font-semibold transition-all border-rose-600 px-3 py-1.5 rounded-md cursor-pointer`}>
+                    {index + 1}
+                  </Link>
+                ))
+              }
+            </div>
           </main>
         </div>
       </ContentWrapper>
@@ -104,26 +121,35 @@ export default function Books(props) {
 }
 
 export async function getServerSideProps({ query }) {
-
   connectToDB()
   let books;
+  let btnCount;
 
   if (query.cat) {
-    books = await booksModel.find({ category: query.cat })
+    books = await booksModel.find({ category: query.cat });
   } else if (query.t) {
-    books = await booksModel.find({ translators: query.t })
+    books = await booksModel.find({ translators: query.t });
   } else if (query.w) {
-    books = await booksModel.find({ writer: query.w })
+    books = await booksModel.find({ writer: query.w });
   } else if (query.p) {
-    books = await booksModel.find({ publication: query.p })
+    books = await booksModel.find({ publication: query.p });
   } else {
-    books = await booksModel.find()
+    books = await booksModel.find();
   }
 
-  const categories = await categoriesModel.find()
-  const writers = await writersModel.find()
-  const translators = await translatorsModel.find()
-  const publications = await publicationsModel.find()
+  if (query.page) {
+    const currentPage = +query.page;
+    const itemCount = 6;
+    const endIndex = currentPage * itemCount;
+    const startIndex = endIndex - itemCount;
+    btnCount = Math.ceil(books.length / itemCount);
+    books = books.slice(startIndex, endIndex);
+  }
+
+  const categories = await categoriesModel.find();
+  const writers = await writersModel.find();
+  const translators = await translatorsModel.find();
+  const publications = await publicationsModel.find();
 
   return {
     props: {
@@ -132,6 +158,7 @@ export async function getServerSideProps({ query }) {
       writers: JSON.parse(JSON.stringify(writers)),
       translators: JSON.parse(JSON.stringify(translators)),
       publications: JSON.parse(JSON.stringify(publications)),
+      btnCount,
     }
   }
 }

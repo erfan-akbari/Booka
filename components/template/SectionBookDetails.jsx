@@ -11,28 +11,19 @@ function SectionBookDetails({ data }) {
                     <div className="w-full px-4 mb-8 md:w-1/2 md:mb-0">
                         <div className="sticky top-0 overflow-hidden ">
                             <div className="relative mb-6 lg:mb-10 lg:h-96">
+                                <div className="absolute -top-2 -left-2 -rotate-45 rounded-full font-bold py-4 px-3 z-20 text-white bg-gradient-to-r hover:rotate-2 transition-all duration-300 cursor-pointer from-red-600 to-rose-600">
+                                    %{data.discount}
+                                </div>
                                 <img className="object-contain w-full lg:h-full" src={data.poster} alt="poster" />
                             </div>
-                            <div className="flex-wrap hidden -mx-2 md:flex">
-                                <div className="w-1/2 p-2 sm:w-1/4">
-                                    <Link className="block border border-gray-200 hover:border-red-400 dark:border-gray-700 dark:hover:border-red-300" href="#">
-                                        <img className="object-contain w-full lg:h-28" src="/images/products/product-9.jpg" alt="book poster" />
-                                    </Link>
-                                </div>
-                                <div className="w-1/2 p-2 sm:w-1/4">
-                                    <Link className="block border border-gray-200 hover:border-red-400 dark:border-gray-700 dark:hover:border-red-300" href="#">
-                                        <img className="object-contain w-full lg:h-28" src="/images/products/product-4.jpg" alt="poster book" />
-                                    </Link>
-                                </div>
-                                <div className="w-1/2 p-2 sm:w-1/4">
-                                    <Link className="block border border-gray-200 hover:border-red-400 dark:border-gray-700 dark:hover:border-red-300" href="#">
-                                        <img className="object-contain w-full lg:h-28" src="/images/products/product-7.jpg" alt="poster book" />
-                                    </Link>
-                                </div>
-                                <div className="w-1/2 p-2 sm:w-1/4">
-                                    <Link className="block border border-gray-200 hover:border-red-400 dark:border-gray-700 dark:hover:border-red-300" href="#">
-                                        <img className="object-contain w-full lg:h-28" src="/images/products/product-1.jpg" alt="poster book" />
-                                    </Link>
+                            <div className="mb-6">
+                                <h2 className="mb-2 text-lg font-bold text-gray-700 dark:text-gray-400">خلاصه کتاب :</h2>
+                                <div className="bg-gray-100 dark:bg-gray-700 rounded-xl">
+                                    <div className="p-3 lg:p-5 ">
+                                        <div className="p-2 rounded-xl lg:p-6 dark:bg-gray-800 bg-gray-50">
+                                            {data.caption}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -46,67 +37,32 @@ function SectionBookDetails({ data }) {
                                 <h2 className="max-w-xl mt-6 mb-6 text-xl font-semibold leading-loose tracking-wide text-gray-700 md:text-2xl dark:text-gray-300">
                                     {data.title}
                                 </h2>
-                                <div className="flex flex-wrap items-center mb-6">
-                                    <ul className="flex mb-4 mr-2 lg:mb-0">
-                                        <li>
-                                            <Link href="#">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="w-4 mr-1 text-red-500 dark:text-gray-400 bi bi-star " viewBox="0 0 16 16">
-                                                    <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z">
-                                                    </path>
-                                                </svg>
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link href="#">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="w-4 mr-1 text-red-500 dark:text-gray-400 bi bi-star " viewBox="0 0 16 16">
-                                                    <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z">
-                                                    </path>
-                                                </svg>
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link href="#">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="w-4 mr-1 text-red-500 dark:text-gray-400 bi bi-star " viewBox="0 0 16 16">
-                                                    <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z">
-                                                    </path>
-                                                </svg>
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link href="#">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="w-4 mr-1 text-red-500 dark:text-gray-400 bi bi-star " viewBox="0 0 16 16">
-                                                    <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z">
-                                                    </path>
-                                                </svg>
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link href="#">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="w-4 mr-1 text-red-500 dark:text-gray-400 bi bi-star " viewBox="0 0 16 16">
-                                                    <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z">
-                                                    </path>
-                                                </svg>
-                                            </Link>
-                                        </li>
-                                    </ul>
-                                    <Link className="mb-4 text-xs underline hover:text-red-600 dark:text-gray-400 dark:hover:text-gray-300 lg:mb-0" href="#">
-                                        مشاهده  امتیازها
-                                    </Link>
+                                <div className="flex items-center my-2.5 gap-1">
+                                    {
+                                        new Array(5 - data.score).fill('star').map(star => (
+                                            <svg className="w-4 h-4 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                            </svg>
+                                        ))
+                                    }
+                                    {
+                                        new Array(data.score).fill('starFill').map(starFill => (
+                                            <svg className="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                            </svg>
+                                        ))
+                                    }
+                                    <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">{data.score}</span>
+                                </div>
+                                <div className="my-3 flex flex-col gap-2 items-start text-gray-400">
+                                    <div className="w-48 overflow-hidden text-ellipsis whitespace-nowrap"><span className='text-black font-semibold'>نویسنده: </span> {data.writer}</div>
+                                    <div className="w-48 overflow-hidden text-ellipsis whitespace-nowrap"><span className='text-black font-semibold'>مترجم: </span>{data.publication}</div>
+                                    <div className="w-48 overflow-hidden text-ellipsis whitespace-nowrap"><span className='text-black font-semibold'>دسته بندی: </span>{data.category}</div>
                                 </div>
                                 <p className="inline-block text-2xl font-semibold text-gray-700 dark:text-gray-400 ">
                                     <span>{data.price} تومان </span>
                                     {/* <span className="ml-3 text-base font-normal text-gray-500 line-through dark:text-gray-400">Rs.10,000.00</span> */}
                                 </p>
-                            </div>
-                            <div className="mb-6">
-                                <h2 className="mb-2 text-lg font-bold text-gray-700 dark:text-gray-400">خلاصه کتاب :</h2>
-                                <div className="bg-gray-100 dark:bg-gray-700 rounded-xl">
-                                    <div className="p-3 lg:p-5 ">
-                                        <div className="p-2 rounded-xl lg:p-6 dark:bg-gray-800 bg-gray-50">
-                                            {data.caption}
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <div className="py-6 mb-6 border-t border-b border-gray-200 dark:border-gray-700">
                                 <span className="text-base text-gray-600 dark:text-gray-400">در انبار</span>

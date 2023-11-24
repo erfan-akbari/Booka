@@ -3,11 +3,13 @@ import Header from '@/components/template/Header'
 import MenuMobile from '@/components/template/MenuMobile'
 import Navbar from '@/components/template/Navbar'
 import '@/styles/globals.css'
+import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
 
 export default function App({ Component, pageProps }) {
 
+  const { asPath } = useRouter()
   const [show, setShow] = useState(false)
   const [lastScrollY, setLastScrollY] = useState(0)
   const [open, setOpen] = useState(false);
@@ -34,6 +36,9 @@ export default function App({ Component, pageProps }) {
     }
   }, [lastScrollY])
 
+  useEffect(() => {
+    setOpen(false)
+  }, [asPath])
 
   return (
     <>

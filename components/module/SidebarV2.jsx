@@ -6,6 +6,7 @@ import {
 } from "@material-tailwind/react";
 import { TiTick } from "react-icons/ti";
 import Link from "next/link";
+import Title2 from "./Title2";
 
 function Icon({ id, open }) {
     return (
@@ -36,15 +37,14 @@ function SidebarV2({ data }) {
 
     return (
         <aside className='lg:sticky lg:top-5 w-full lg:basis-[25%]'>
-            <h3 className="text-red-600 text-xl mb-5">براساس فیلتر خرید کنید</h3>
-
+            <Title2 value={'براساس فیلتر خرید کنید'} />
             <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
-                <AccordionHeader onClick={() => handleOpen(1)}>دسته بندی</AccordionHeader>
+                <AccordionHeader className="text-lime-950 hover:text-rose-700" onClick={() => handleOpen(1)}>دسته بندی</AccordionHeader>
                 <AccordionBody>
                     <ul className='flex flex-col gap-2'>
                         <Link
                             onClick={() => setCategorieFilter('همه')}
-                            href={`/books`}
+                            href={`/books?page=1`}
                             className={`hover:text-rose-800 cursor-pointer flex items-center ${categorieFilter === 'همه' && 'text-rose-800 font-bold'}`}
                         >
                             همه
@@ -53,7 +53,7 @@ function SidebarV2({ data }) {
                         {categories?.map(item => (
                             <Link
                                 onClick={() => setCategorieFilter(item.text)}
-                                href={`/books?cat=${item.text}`}
+                                href={`/books?page=1&cat=${item.text}`}
                                 className={`hover:text-rose-800 cursor-pointer flex items-center ${item.text === categorieFilter && 'text-rose-800 font-bold'}`}
                                 key={item._id}>
                                 {item.text}
@@ -64,14 +64,14 @@ function SidebarV2({ data }) {
                 </AccordionBody>
             </Accordion>
             <Accordion open={open === 2} icon={<Icon id={2} open={open} />}>
-                <AccordionHeader onClick={() => handleOpen(2)}>
+                <AccordionHeader className="text-lime-950 hover:text-rose-700" onClick={() => handleOpen(2)}>
                     انتشارات
                 </AccordionHeader>
                 <AccordionBody>
                     <ul className='flex flex-col gap-2'>
                         <Link
                             onClick={() => setPublicationFilter('همه')}
-                            href={`/books`}
+                            href={`/books?page=1`}
                             className={`hover:text-rose-800 cursor-pointer flex items-center ${publicationFilter === 'همه' && 'text-rose-800 font-bold'}`}
                         >
                             همه
@@ -80,7 +80,7 @@ function SidebarV2({ data }) {
                         {publications?.map(item => (
                             <Link
                                 onClick={() => setPublicationFilter(item.title)}
-                                href={`/books?p=${item.title}`}
+                                href={`/books?page=1&p=${item.title}`}
                                 className={`hover:text-rose-800 cursor-pointer flex items-center ${item.title === publicationFilter && 'text-rose-800 font-bold'}`}
                                 key={item._id}>
                                 {item.title}
@@ -91,14 +91,14 @@ function SidebarV2({ data }) {
                 </AccordionBody>
             </Accordion>
             <Accordion open={open === 3} icon={<Icon id={3} open={open} />}>
-                <AccordionHeader onClick={() => handleOpen(3)}>
+                <AccordionHeader  className="text-lime-950 hover:text-rose-700" onClick={() => handleOpen(3)}>
                     نویسنده
                 </AccordionHeader>
                 <AccordionBody>
                     <ul className='flex flex-col gap-2'>
                         <Link
                             onClick={() => setWriterFilter('همه')}
-                            href={`/books`}
+                            href={`/books?page=1`}
                             className={`hover:text-rose-800 cursor-pointer flex items-center ${writerFilter === 'همه' && 'text-rose-800 font-bold'}`}
                         >
                             همه
@@ -107,7 +107,7 @@ function SidebarV2({ data }) {
                         {writers?.map(item => (
                             <Link
                                 onClick={() => setWriterFilter(item.title)}
-                                href={`/books?w=${item.title}`}
+                                href={`/books?page=1&w=${item.title}`}
                                 className={`hover:text-rose-800 cursor-pointer flex items-center ${item.title === writerFilter && 'text-rose-800 font-bold'}`}
                                 key={item._id}>
                                 {item.title}
@@ -118,14 +118,14 @@ function SidebarV2({ data }) {
                 </AccordionBody>
             </Accordion>
             <Accordion open={open === 4} icon={<Icon id={4} open={open} />}>
-                <AccordionHeader onClick={() => handleOpen(4)}>
+                <AccordionHeader className="text-lime-950 hover:text-rose-700" onClick={() => handleOpen(4)}>
                     مترجم
                 </AccordionHeader>
                 <AccordionBody>
                     <ul className='flex flex-col gap-2'>
                         <Link
                             onClick={() => setTranslatorFilter('همه')}
-                            href={`/books`}
+                            href={`/books?page=1`}
                             className={`hover:text-rose-800 cursor-pointer flex items-center ${translatorFilter === 'همه' && 'text-rose-800 font-bold'}`}
                         >
                             همه
@@ -134,7 +134,7 @@ function SidebarV2({ data }) {
                         {translators?.map(item => (
                             <Link
                                 onClick={() => setTranslatorFilter(item.title)}
-                                href={`/books?t=${item.title}`}
+                                href={`/books?page=1&t=${item.title}`}
                                 className={`hover:text-rose-800 cursor-pointer flex items-center ${item.title === translatorFilter && 'text-rose-800 font-bold'}`}
                                 key={item._id}>
                                 {item.title}

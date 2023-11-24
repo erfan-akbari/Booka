@@ -1,5 +1,6 @@
 import ContentWrapper from '@/components/module/ContentWrapper'
 import Sidebar from '@/components/module/Sidebar'
+import Title from '@/components/module/Title'
 import Link from 'next/link'
 
 
@@ -10,8 +11,7 @@ function Blogs() {
       <ContentWrapper>
         <div className="flex items-start flex-col lg:flex-row gap-10">
           <main className="basis-[65%]">
-            <h1 className="mb-4 text-3xl font-extrabold leading-tight text-rose-600 lg:mb-6 lg:text-4xl dark:text-white">مقاله ها</h1>
-
+          <Title value={'مقاله ها'} />
             <div className="flex flex-col gap-10">
               <article className='shadow-md p-2 rounded-lg border-t-4'>
                 <div className="flex flex-col gap-5">

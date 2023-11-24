@@ -31,7 +31,7 @@ function Footer() {
                         </h3>
                         <ul className='font-semibold flex items-center gap-3 flex-wrap md:bg-white rounded-lg md:text-red-600 px-2'>
                             <li className='hover:text-rose-950 transition-colors'><Link href={'/'}>خانه</Link></li>
-                            <li className='hover:text-rose-950 transition-colors'><Link href={'/books'}>فروشگاه</Link></li>
+                            <li className='hover:text-rose-950 transition-colors'><Link href={'/books?page=1'}>فروشگاه</Link></li>
                             <li className='hover:text-rose-950 transition-colors'><Link href={'/aboutUs'}>درباره ما</Link></li>
                             <li className='hover:text-rose-950 transition-colors'><Link href={'/login'}>ورود</Link></li>
                             <li className='hover:text-rose-950 transition-colors'><Link href={'/contactUs'}>تماس با ما</Link></li>

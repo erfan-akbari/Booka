@@ -1,4 +1,4 @@
-import Carousel from "@/components/template/Carousel";
+import Carousel from "@/components/module/Carousel";
 import SectionBookDetails from "@/components/template/SectionBookDetails";
 import ContentWrapper from "@/components/module/ContentWrapper";
 import Tab from "@/components/template/Tab";

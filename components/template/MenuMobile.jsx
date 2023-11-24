@@ -68,7 +68,7 @@ function MenuMobile({ open, }) {
                         <Link href={'/'} className="pt-2 hover:text-rose-500 transition-colors">صفحه اصلی</Link>
                     </li>
                     <li>
-                        <Link href={'/books'} className="pt-2 hover:text-rose-500 transition-colors">فروشگاه </Link>
+                        <Link href={'/books?page=1'} className="pt-2 hover:text-rose-500 transition-colors">فروشگاه </Link>
                     </li>
                     <li>
                         <Link href={'/blogs'} className="pt-2 hover:text-rose-500 transition-colors">بلاگ </Link>

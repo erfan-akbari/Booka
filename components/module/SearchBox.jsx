@@ -17,7 +17,7 @@ function SearchBox({ styles }) {
     }, [asPath])
 
     return (
-        <div className={`bg-stone-50 items-center border py-1.5 px-3 rounded-lg ${styles}`}>
+        <div className={`bg-stone-50 items-center border py-1.5 px-1 rounded-lg ${styles}`}>
             <input
                 className="outline-none border-none bg-transparent"
                 type="text"

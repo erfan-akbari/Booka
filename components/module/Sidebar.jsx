@@ -1,12 +1,14 @@
 import { CiSearch } from 'react-icons/ci'
 import { useState } from 'react'
+import Title2 from './Title2'
 
 function Sidebar() {
     const [searchValue, setSearchValue] = useState('')
 
     return (
         <aside className="sticky top-5  w-full lg:basis-[35%] p-2 flex flex-col justify-center gap-5">
-            <h4 className="font-bold text-rose-600 text-lg">جستجو</h4>
+
+            <Title2 value={'جستجو'} />
             <div className='shadow-md p-2 rounded-lg border-t-4'>
                 <div className="w-full flex items-center border py-1.5 px-3 rounded-lg mb-5">
                     <input
@@ -18,7 +20,7 @@ function Sidebar() {
                 </div>
             </div>
 
-            <h4 className="font-bold text-rose-600 text-lg">مطالب اخیر</h4>
+            <Title2 value={'مطالب اخیر'} />
             <div className='shadow-md p-2 rounded-lg border-t-4'>
                 <div className="flex flex-col gap-2">
                     <div className="flex items-center gap-5 border h-24 rounded-lg overflow-hidden">
@@ -45,7 +47,7 @@ function Sidebar() {
                 </div>
             </div>
 
-            <h4 className="font-bold text-rose-600 text-lg">آرشیو مطالب</h4>
+            <Title2 value={'آرشیو مطالب'} />
             <div className='shadow-md p-2 rounded-lg border-t-4'>
                 <div className="">
                     <ul className='space-y-2 list-disc mr-5'>
@@ -59,7 +61,7 @@ function Sidebar() {
                 </div>
             </div>
 
-            <h4 className="font-bold text-rose-600 text-lg">نظرات اخیر</h4>
+            <Title2 value={'نظرات اخیر'} />
             <div className="flex flex-col gap-8">
                 <div className="relative shadow-lg p-5 rounded-lg border-t-4">
                     <h5 className='font-bold text-lg text-gray-800'>صابر افشاری</h5>

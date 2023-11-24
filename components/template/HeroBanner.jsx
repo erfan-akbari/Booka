@@ -29,9 +29,9 @@ function HeroBanner() {
                 <SwiperSlide className='relative'>
                     <img className="w-full" src="/images/slide/slide1.jpg" alt="banner" />
                     <div className="hidden md:flex absolute z-10 top-1/4 left-20 flex-col items-end gap-4">
-                        <h2 data-aos="fade-up-right" className="bg-blue-600 text-white font-bold text-3xl p-2 w-fit">آرشیوی از برترین کتاب‌های سال</h2>
-                        <p data-aos="fade-up-right" data-aos-duration={600} className="bg-stone-50 text-black p-2 w-fit text-xl font-semibold">نصب اپلیکیشن کتابخانه روی دسکتاپ</p>
-                        <Link data-aos="fade-up-right" data-aos-duration={800} href={''} className='flex items-center gap-2 bg-blue-600 text-stone-50 w-fit px-2 py-1 rounded-md hover:bg-blue-400 transition-colors'>
+                        <h2 data-aos="fade-up-right" className="bg-gradient-to-r from-red-500 to-rose-500 rounded-md text-white shadow-md font-bold text-3xl p-2 w-fit">آرشیوی از برترین کتاب‌های سال</h2>
+                        <p data-aos="fade-up-right" data-aos-duration={600} className="bg-stone-50 rounded-md text-black p-2 w-fit text-xl font-semibold">نصب اپلیکیشن کتابخانه روی دسکتاپ</p>
+                        <Link data-aos="fade-up-right" data-aos-duration={800} href={''} className='flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-stone-50 w-fit px-2 py-1 rounded-md hover:bg-blue-400 transition-colors'>
                             <BsArrowRight />
                             مشاهده ویژگی ها
                         </Link>
@@ -40,9 +40,9 @@ function HeroBanner() {
                 <SwiperSlide className='relative'>
                     <img className="w-full" src="/images/slide/slide2.jpg" alt="banner" />
                     <div className="hidden md:flex absolute z-10 top-1/4 left-20 flex-col items-end gap-4">
-                        <h2 data-aos="fade-up-right" className="bg-blue-600 text-white font-bold text-3xl p-2 w-fit">اپلیکیشن موبایلی کتابخانه بوکا</h2>
-                        <p data-aos="fade-up-right" data-aos-duration={600} className="bg-stone-50 text-black p-2 w-fit text-xl font-semibold">تنها با چند کلیک به راحتی کتاب مورد علاقه خود را پیدا و مطالعه کنید.</p>
-                        <Link data-aos="fade-up-right" data-aos-duration={800} href={''} className='flex items-center gap-2 bg-blue-600 text-stone-50 w-fit px-2 py-1 rounded-md hover:bg-blue-400 transition-colors'>
+                        <h2 data-aos="fade-up-right" className="bg-gradient-to-r from-red-500 to-rose-500 rounded-md text-white shadow-md font-bold text-3xl p-2 w-fit">اپلیکیشن موبایلی کتابخانه بوکا</h2>
+                        <p data-aos="fade-up-right" data-aos-duration={600} className="bg-stone-50 rounded-md text-black p-2 w-fit text-xl font-semibold">تنها با چند کلیک به راحتی کتاب مورد علاقه خود را پیدا و مطالعه کنید.</p>
+                        <Link data-aos="fade-up-right" data-aos-duration={800} href={''} className='flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-stone-50 w-fit px-2 py-1 rounded-md hover:bg-blue-400 transition-colors'>
                             <BsArrowRight />
                             دانلود اپلیکیشن
                         </Link>
@@ -51,9 +51,9 @@ function HeroBanner() {
                 <SwiperSlide className='relative'>
                     <img className="w-full" src="/images/slide/slide3.jpg" alt="banner" />
                     <div className="hidden md:flex absolute z-10 top-1/4 left-20 flex-col items-end gap-4">
-                        <h2 data-aos="fade-up-right" className="bg-blue-600 text-white font-bold text-3xl p-2 w-fit">بیش از صد هزار جلد کتاب در بوکا</h2>
-                        <p data-aos="fade-up-right" data-aos-duration={600} className="bg-stone-50 text-black p-2 w-fit text-xl font-semibold">مشاهده لیست تمام ناشران</p>
-                        <Link data-aos="fade-up-right" data-aos-duration={800} href={''} className='flex items-center gap-2 bg-blue-600 text-stone-50 w-fit px-2 py-1 rounded-md hover:bg-blue-400 transition-colors'>
+                        <h2 data-aos="fade-up-right" className="bg-gradient-to-r from-red-500 to-rose-500 rounded-md text-white shadow-md font-bold text-3xl p-2 w-fit">بیش از صد هزار جلد کتاب در بوکا</h2>
+                        <p data-aos="fade-up-right" data-aos-duration={600} className="bg-stone-50 rounded-md text-black p-2 w-fit text-xl font-semibold">مشاهده لیست تمام ناشران</p>
+                        <Link data-aos="fade-up-right" data-aos-duration={800} href={''} className='flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-stone-50 w-fit px-2 py-1 rounded-md hover:bg-blue-400 transition-colors'>
                             <BsArrowRight />
                             خرید کتاب
                         </Link>
@@ -63,9 +63,9 @@ function HeroBanner() {
                     <img className="w-full" src="/images/slide/slide4.jpg" alt="banner" />
                     <img className='hidden md:block absolute z-10 top-10 left-96' src="/images/slide/plane.png" alt="plane" />
                     <div className="hidden md:flex absolute z-10 top-1/4 left-20 flex-col items-end gap-4">
-                        <h2 data-aos="fade-up-right" className="bg-blue-600 text-white font-bold text-3xl p-2 w-fit">اپلیکیشن موبایلی کتابخانه بوکا</h2>
-                        <p data-aos="fade-up-right" data-aos-duration={600} className="bg-stone-50 text-black p-2 w-fit text-xl font-semibold">در هر مکان و زمانی به راحتی به کتابخانه شخصی خود دسترسی دارید!</p>
-                        <Link data-aos="fade-up-right" data-aos-duration={800} href={''} className='flex items-center gap-2 bg-blue-600 text-stone-50 w-fit px-2 py-1 rounded-md hover:bg-blue-400 transition-colors'>
+                        <h2 data-aos="fade-up-right" className="bg-gradient-to-r from-red-500 to-rose-500 rounded-md text-white shadow-md font-bold text-3xl p-2 w-fit">اپلیکیشن موبایلی کتابخانه بوکا</h2>
+                        <p data-aos="fade-up-right" data-aos-duration={600} className="bg-stone-50 rounded-md text-black p-2 w-fit text-xl font-semibold">در هر مکان و زمانی به راحتی به کتابخانه شخصی خود دسترسی دارید!</p>
+                        <Link data-aos="fade-up-right" data-aos-duration={800} href={''} className='flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-stone-50 w-fit px-2 py-1 rounded-md hover:bg-blue-400 transition-colors'>
                             <BsArrowRight />
                             برنامه‌های جانبی
                         </Link>

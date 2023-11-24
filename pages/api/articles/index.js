@@ -1,7 +1,7 @@
 import connectToDB from '@/utils/db'
 import articlesModel from '@/models/article'
 
-const handlear = async (req, res) => {
+const handler = async (req, res) => {
     connectToDB()
 
     if (req.method === 'GET') {
@@ -15,4 +15,4 @@ const handlear = async (req, res) => {
 
 }
 
-export default handlear
+export default handler

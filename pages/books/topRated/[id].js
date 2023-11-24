@@ -1,4 +1,4 @@
-import Carousel from "@/components/template/Carousel";
+import Carousel from "@/components/module/Carousel";
 import SectionBookDetails from "@/components/template/SectionBookDetails";
 import ContentWrapper from "@/components/module/ContentWrapper";
 import Tab from "@/components/template/Tab";
@@ -40,7 +40,7 @@ export async function getStaticProps({ params }) {
   connectToDB()
   const book = await topRatedBooksModel.findOne({ _id: params.id })
   const featured = await featuredModel.find()
-console.log(book);
+
   if (!book) {
     return {
       notFound: true

@@ -1,11 +1,11 @@
-import Carousel from "@/components/template/Carousel";
+import Carousel from "@/components/module/Carousel";
 import SectionBookDetails from "@/components/template/SectionBookDetails";
 import ContentWrapper from "@/components/module/ContentWrapper";
 import Tab from "@/components/template/Tab";
 
 import connectToDB from "@/utils/db";
 import topRatedBooksModel from "@/models/topRatedBooks"
-import featuredModel from "@/models/featured"
+import booksModel from "@/models//book"
 
 
 export default function BookDetails({ book, topRatedBooks }) {
@@ -22,7 +22,7 @@ export default function BookDetails({ book, topRatedBooks }) {
 
 export async function getStaticPaths() {
   connectToDB()
-  const books = await featuredModel.find()
+  const books = await booksModel.find()
 
   const paths = books?.slice(0, 3).map(book => {
     return {
@@ -38,9 +38,9 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   connectToDB()
-  const book = await featuredModel.findOne({ _id: params.id })
+  const book = await booksModel.findOne({ _id: params.id })
   const topRatedBooks = await topRatedBooksModel.find()
-console.log(book);
+
   if (!book) {
     return {
       notFound: true

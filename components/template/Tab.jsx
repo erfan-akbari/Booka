@@ -2,49 +2,49 @@ import React, { useState } from 'react'
 
 
 function Tab() {
-    const [typeShowContent, setTypeShowContent] = useState('معرفی')
+    const [typeShowContent, setTypeShowContent] = useState('خلاصه')
 
     return (
         <div className='py-10 transition-all'>
             <div className="grid grid-cols-3 gap-5 font-bold">
                 <button
-                    onClick={() => setTypeShowContent('معرفی')}
-                    className={`p-4 rounded  ${typeShowContent === 'معرفی' ? 'bg-gradient-to-b from-red-500 to-rose-700 text-white' : 'text-rose-700 bg-white'}  shadow-md flex items-center justify-center`}
-                > معرفی کتاب
+                    onClick={() => setTypeShowContent('خلاصه')}
+                    className={`p-4 rounded  ${typeShowContent === 'خلاصه' ? 'bg-gradient-to-r from-red-600 to-rose-600 text-white' : 'text-rose-700 bg-gray-100'}  shadow-md flex items-center justify-center`}
+                > خلاصه کتاب
                 </button>
                 <button
-                    onClick={() => setTypeShowContent('نظرات')}
-                    className={`p-4 rounded ${typeShowContent === 'نظرات' ? 'bg-gradient-to-b from-red-500 to-rose-700 text-white' : 'text-rose-700 bg-white'} shadow-md flex items-center justify-center`}
+                    onClick={() => setTypeShowContent('بریده ای از این کتاب')}
+                    className={`p-4 rounded ${typeShowContent === 'بریده ای از این کتاب' ? 'bg-gradient-to-r from-red-600 to-rose-600 text-white' : 'text-rose-700 bg-gray-100'} shadow-md flex items-center justify-center`}
                 >
-                    نظرات
+                    بریده ای از این کتاب
                 </button>
                 <button
-                    onClick={() => setTypeShowContent('مشخصات')}
-                    className={`p-4 rounded ${typeShowContent === 'مشخصات' ? 'bg-gradient-to-b from-red-500 to-rose-700 text-white' : 'text-rose-700 bg-white'} shadow-md flex items-center justify-center`}
+                    onClick={() => setTypeShowContent('مشخصات بیشتر')}
+                    className={`p-4 rounded ${typeShowContent === 'مشخصات بیشتر' ? 'bg-gradient-to-r from-red-600 to-rose-600 text-white' : 'text-rose-700 bg-gray-100'} shadow-md flex items-center justify-center`}
                 >
-                    مشخصات
+                    مشخصات بیشتر
                 </button>
             </div>
-            {typeShowContent === 'معرفی' && (
+            {typeShowContent === 'خلاصه' && (
                 <div className="shadow-xl border border-gray-100 font-semibold p-8 rounded text-gray-500 bg-white mt-6">
                     توضیحات محصول
                     لورم ایپسوم متنی است که ساختگی برای طراحی و چاپ آن مورد است. صنعت چاپ زمانی لازم بود شرایطی شما باید فکر ثبت نام و طراحی، لازمه خروج می باشد. در ضمن قاعده همفکری ها جوابگوی سئوالات زیاد شاید باشد، آنچنان که لازم بود طراحی گرافیکی خوب بود. کتابهای زیادی شرایط سخت ، دشوار و کمی در سالهای دور لازم است. هدف از این نسخه فرهنگ پس از آن و دستاوردهای خوب شاید باشد. حروفچینی لازم در شرایط فعلی لازمه تکنولوژی بود که گذشته، حال و آینده را شامل گردد. سی و پنج درصد از طراحان در قرن پانزدهم میبایست پرینتر در ستون و سطر حروف لازم است، بلکه شناخت این ابزار گاه اساسا بدون هدف بود و سئوالهای زیادی در گذشته بوجود می آید، تنها لازمه آن بود.
                     لورم ایپسوم متنی است که ساختگی برای طراحی و چاپ آن مورد است. صنعت چاپ زمانی لازم بود شرایطی شما باید فکر ثبت نام و طراحی، لازمه خروج می باشد. در ضمن قاعده همفکری ها جوابگوی سئوالات زیاد شاید باشد، آنچنان که لازم بود طراحی گرافیکی خوب بود. کتابهای زیادی شرایط سخت ، دشوار و کمی در سالهای دور لازم است. هدف از این نسخه فرهنگ پس از آن و دستاوردهای خوب شاید باشد. حروفچینی لازم در شرایط فعلی لازمه تکنولوژی بود که گذشته، حال و آینده را شامل گردد. سی و پنج درصد از طراحان در قرن پانزدهم میبایست پرینتر در ستون و سطر حروف لازم است، بل.
                 </div>
             )}
-            {typeShowContent === 'نظرات' && (
+            {typeShowContent === 'بریده ای از این کتاب' && (
                 <div className="shadow-xl border border-gray-100 font-semibold p-8 rounded text-gray-500 bg-white mt-6">
 
                     <div className="max-w-2xl mx-auto px-4">
                         <div className="flex justify-between items-center mb-6">
-                            <h2 className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">کامنت ها (20)</h2>
+                            <h2 className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white"> بریده های دیگر کاربران (20)</h2>
                         </div>
                         <form className="mb-6">
                             <div className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                                <label htmlFor="comment" className="sr-only">کامنت شما</label>
+                                <label htmlFor="comment" className="sr-only">بریده ای از این کتاب</label>
                                 <textarea id="comment" rows="6"
                                     className="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
-                                    placeholder="نظر خود را تایپ کنید..." required></textarea>
+                                    placeholder="تایپ کنید..." required></textarea>
                             </div>
                             <button type="submit"
                                 className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-rose-700 rounded-lg hover:bg-rose-500 ">
@@ -79,7 +79,7 @@ function Tab() {
                                         <button className="inline-flex items-center px-1 -ml-1 flex-column">
                                             <svg className="w-5 h-5 text-gray-600 cursor-pointer hover:text-gray-700" fill="none"
                                                 stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                <path stroke-linecap="round" stroke-linejoin="round" strokeWidthe="2"
+                                                <path strokeLinecap="round" stroke-linejoin="round" strokeWidthe="2"
                                                     d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5">
                                                 </path>
                                             </svg>
@@ -139,7 +139,7 @@ function Tab() {
                                         <button className="inline-flex items-center px-1 -ml-1 flex-column">
                                             <svg className="w-5 h-5 text-gray-600 cursor-pointer hover:text-gray-700" fill="none"
                                                 stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                <path stroke-linecap="round" stroke-linejoin="round" strokeWidthe="2"
+                                                <path strokeLinecap="round" stroke-linejoin="round" strokeWidthe="2"
                                                     d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5">
                                                 </path>
                                             </svg>
@@ -152,7 +152,7 @@ function Tab() {
                     </section>
                 </div>
             )}
-            {typeShowContent === 'مشخصات' && (
+            {typeShowContent === 'مشخصات بیشتر' && (
                 <div className="shadow-xl border border-gray-100 font-semibold p-8 rounded text-gray-500 bg-white mt-6">
                     <div className="relative overflow-x-auto">
                         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 overflow-x-scroll">

@@ -5,9 +5,9 @@ const handler = async (req, res) => {
     connectToDB()
 
     if (req.method === 'GET') {
-        const articles = await articlesModel.find()
+        const articles = await articlesModel.find({}).populate("creator");
         if (articles) {
-            return res.status(200).json(articles)
+            return res.json(articles)
         } else {
             return res.status(500).json({ message: 'server error' })
         }

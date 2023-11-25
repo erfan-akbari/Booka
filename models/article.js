@@ -1,25 +1,34 @@
 const mongoose = require('mongoose')
+const writerModel = require('@/models/writer')
 
-const schema = mongoose.Schema({
-    title: {
-        type: String,
+const schema = mongoose.Schema(
+    {
+        title: {
+            type: String,
+            required: true,
+        },
+        description: {
+            type: String,
+            required: true,
+        },
+        posters: {
+            type: Array,
+            required: true,
+        },
+        shortName: {
+            type: String,
+            required: true,
+        },
+        creator: {
+            type: mongoose.Types.ObjectId,
+            ref: "writer",
+            required: true,
+        },
     },
-    desc: {
-        type: String,
-    },
-    creator: {
-        type: String,
-    },
-    intrCreator: {
-        type: String,
-    },
-    createdAt: {
-        type: Number,
-    },
-    shortName: {
-        type: String,
-    },
-})
+    {
+        timestamps: true
+    }
+)
 
 const model = mongoose.models.article || mongoose.model('article', schema)
 

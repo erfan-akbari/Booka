@@ -39,7 +39,7 @@ function Navbar({ open, openDrawer }) {
                                 <ul className="hidden group-hover:block absolute top-full lg:w-[800px] xl:w-[1000px] bg-gray-50 pl-4 pr-2 py-2 shadow-lg z-40 border rounded-lg space-y-2">
                                     {categories?.map(cat => (
                                         <li key={cat._id} className="cursor-pointer hover:text-rose-600">
-                                            <Link href={`/books?cat=${cat.route}`}>{cat.text}</Link>
+                                            <Link href={`/books?page=1&cat=${cat.route}`}>{cat.text}</Link>
                                         </li>
                                     ))}
                                 </ul>

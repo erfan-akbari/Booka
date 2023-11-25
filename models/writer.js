@@ -6,6 +6,6 @@ const schema = mongoose.Schema({
     }
 })
 
-const model = mongoose.models.writer || mongoose.model('writer', schema)
+const model = mongoose.models?.writer || mongoose.model('writer', schema)
 
 export default model;

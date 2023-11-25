@@ -27,6 +27,6 @@ const schema = mongoose.Schema({
     }
 })
 
-const model = mongoose.models.featured || mongoose.model('featured', schema)
+const model = mongoose.models?.featured || mongoose.model('featured', schema)
 
 export default model;

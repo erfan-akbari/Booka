@@ -56,7 +56,7 @@ function MenuMobile({ open, }) {
                             <AccordionBody>
                                 <div className='flex flex-col gap-2'>
                                     {categories?.map(cat => (
-                                        <Link href={`/books?cat=${cat.route}`} key={cat._id}>
+                                        <Link href={`/books?page=1&cat=${cat.route}`} key={cat._id}>
                                             {cat.text}
                                         </Link>
                                     ))}

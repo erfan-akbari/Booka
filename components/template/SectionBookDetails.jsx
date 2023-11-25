@@ -1,11 +1,30 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
+import ScoreBox from '../module/ScoreBox'
 
 function SectionBookDetails({ data }) {
 
+    const [countBook, setCountBook] = useState(1)
+
+    const minusCount = () => {
+        setCountBook(prev => {
+            if (prev === 0) {
+                return prev = 0
+            }
+            return prev - 1
+        })
+    }
+    const plusCount = () => {
+        setCountBook(prev => {
+            if (prev === 10) {
+                return prev = 10
+            }
+            return prev + 1
+        })
+    }
 
     return (
-        <section className="py-10 font-poppins dark:bg-gray-800">
+        <section className="pt-10 font-poppins dark:bg-gray-800">
             <div className="max-w-6xl px-4 mx-auto">
                 <div className="flex flex-wrap -mx-4">
                     <div className="w-full px-4 mb-8 md:w-1/2 md:mb-0">
@@ -37,23 +56,7 @@ function SectionBookDetails({ data }) {
                                 <h2 className="max-w-xl mt-6 mb-6 text-xl font-semibold leading-loose tracking-wide text-gray-700 md:text-2xl dark:text-gray-300">
                                     {data.title}
                                 </h2>
-                                <div className="flex items-center my-2.5 gap-1">
-                                    {
-                                        new Array(5 - data.score).fill('star').map(star => (
-                                            <svg className="w-4 h-4 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                            </svg>
-                                        ))
-                                    }
-                                    {
-                                        new Array(data.score).fill('starFill').map(starFill => (
-                                            <svg className="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                            </svg>
-                                        ))
-                                    }
-                                    <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">{data.score}</span>
-                                </div>
+                                <ScoreBox score={data.score} />
                                 <div className="my-3 flex flex-col gap-2 items-start text-gray-400">
                                     <div className="w-48 overflow-hidden text-ellipsis whitespace-nowrap"><span className='text-black font-semibold'>نویسنده: </span> {data.writer}</div>
                                     <div className="w-48 overflow-hidden text-ellipsis whitespace-nowrap"><span className='text-black font-semibold'>مترجم: </span>{data.publication}</div>
@@ -77,30 +80,36 @@ function SectionBookDetails({ data }) {
                                 <div className="mb-4 lg:mb-0">
                                     <div className="w-28">
                                         <div className="relative flex flex-row w-full h-10 bg-transparent rounded-lg">
-                                            <button className="w-20 h-full text-gray-600 bg-gray-100 border-r rounded-l outline-none cursor-pointer dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-400 hover:text-gray-700 dark:bg-gray-900 hover:bg-gray-300">
+                                            <button
+                                                className="w-20 h-full text-gray-600 bg-gray-100 border-r rounded-l outline-none cursor-pointer dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-400 hover:text-gray-700 dark:bg-gray-900 hover:bg-gray-300"
+                                                onClick={minusCount}
+                                            >
                                                 <span className="m-auto text-2xl font-thin">-</span>
                                             </button>
-                                            <input type="number" className="flex items-center w-full font-semibold text-center text-gray-700 placeholder-gray-700 bg-gray-100 outline-none dark:text-gray-400 dark:placeholder-gray-400 dark:bg-gray-900 focus:outline-none text-md hover:text-black" placeholder="1" />
-                                            <button className="w-20 h-full text-gray-600 bg-gray-100 border-l rounded-r outline-none cursor-pointer dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-400 dark:bg-gray-900 hover:text-gray-700 hover:bg-gray-300">
+                                            <input value={countBook} onChange={e => setCountBook(e.target.value)} type="number" className="flex items-center w-full font-semibold text-center text-gray-700 placeholder-gray-700 bg-gray-100 outline-none dark:text-gray-400 dark:placeholder-gray-400 dark:bg-gray-900 focus:outline-none text-md hover:text-black" placeholder="1" />
+                                            <button
+                                                className="w-20 h-full text-gray-600 bg-gray-100 border-l rounded-r outline-none cursor-pointer dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-400 dark:bg-gray-900 hover:text-gray-700 hover:bg-gray-300"
+                                                onClick={plusCount}
+                                            >
                                                 <span className="m-auto text-2xl font-thin">+</span>
                                             </button>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="mb-4 lg:mb-0">
-                                    <button className="flex items-center justify-center w-full h-10 p-2 mr-4 text-gray-700 border border-gray-300 lg:w-11 hover:text-gray-50 dark:text-gray-200 dark:border-red-600 hover:bg-red-600 hover:border-red-600 dark:bg-red-600 dark:hover:bg-red-500 dark:hover:border-red-500 dark:hover:text-gray-100">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className=" bi bi-heart" viewBox="0 0 16 16">
+                                    <button className="flex items-center justify-center w-fit h-10 p-3 mr-4 rounded-full shadow-md shadow-rose-600 hover:shadow-xl hover:shadow-rose-600 text-lg text-rose-600 transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" className="bi bi-heart" viewBox="0 0 16 16">
                                             <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z">
                                             </path>
                                         </svg>
                                     </button>
                                 </div>
-                                <Link href="#" className="w-full px-4 py-3 mr-4 text-center text-red-600 bg-red-100 border border-red-600 dark:hover:bg-gray-900 dark:text-gray-400 dark:border-gray-700 dark:bg-gray-700 hover:bg-red-600 hover:text-gray-100 lg:w-1/2 rounded-xl">
+                                <button onClick={() => { }} className="w-full px-4 py-3 mr-4 text-center text-lime-600 bg-lime-50 border border-lime-600 dark:hover:bg-gray-900 dark:text-gray-400 dark:border-gray-700 dark:bg-gray-700 hover:bg-lime-600 hover:text-gray-100 lg:w-1/2 rounded-xl transition-all">
                                     افزودن به سبد خرید
-                                </Link>
+                                </button>
                             </div>
                             <div className="flex gap-4 mb-6">
-                                <Link href="#" className="w-full px-4 py-3 text-center bg-gradient-to-t from-red-500 to-rose-700 text-white font-bold border border-transparent rounded-xl">
+                                <Link href="/payment" className="w-full px-4 py-3 text-center bg-gradient-to-r from-red-600 to-rose-600 text-white font-bold border border-transparent rounded-xl">
                                     همین الان بخرید
                                 </Link>
                             </div>

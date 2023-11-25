@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import CardV4 from '../module/CardV4';
 
-function BloggSlider({ title }) {
+function BloggSlider({ data, title }) {
     return (
         <section className='py-10'>
             {title && <h2 className="text-gray-600 text-3xl font-black text-center mb-5">{title}</h2>}
@@ -17,18 +17,11 @@ function BloggSlider({ title }) {
                 spaceBetween={30}
                 className="mySwiper"
             >
-                <SwiperSlide>
-                    <CardV4 />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CardV4 />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CardV4 />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CardV4 />
-                </SwiperSlide>
+                {data?.map(article => (
+                    <SwiperSlide key={article._id}>
+                        <CardV4 {...article} />
+                    </SwiperSlide>
+                ))}
             </Swiper>
         </section>
     )

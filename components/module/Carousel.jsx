@@ -36,7 +36,7 @@ function Carousel({ data, title, type }) {
                     modules={[Scrollbar, Keyboard]}
                     className="mySwiper"
                 >
-                    {data.map(book => (
+                    {data?.map(book => (
                         <SwiperSlide key={book._id}>
                             <CardV3 {...book} type={type} />
                         </SwiperSlide>

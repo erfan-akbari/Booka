@@ -1,80 +1,107 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+
 import 'swiper/css';
-import 'swiper/css/navigation';
-import { Autoplay, Navigation } from 'swiper/modules';
-import Link from 'next/link';
-import { BsArrowRight } from "react-icons/bs"
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import 'swiper/css/effect-cube';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-creative';
+
+import { EffectCube, Autoplay, Pagination, Navigation } from 'swiper/modules';
+
 
 function HeroBanner() {
-
-    useEffect(() => {
-        AOS.init();
-    }, [])
-
     return (
-        <div className='z-10'>
-            <Swiper
-                spaceBetween={30}
-                autoplay={{
-                    delay: 10000,
-                    disableOnInteraction: false,
-                }}
-                navigation={true}
-                modules={[Autoplay, Navigation]}
-                className="mySwiper"
-            >
-                <SwiperSlide className='relative'>
-                    <img className="w-full" src="/images/slide/slide1.jpg" alt="banner" />
-                    <div className="hidden md:flex absolute z-10 top-1/4 left-20 flex-col items-end gap-4">
-                        <h2 data-aos="fade-up-right" className="bg-gradient-to-r from-red-500 to-rose-500 rounded-md text-white shadow-md font-bold text-3xl p-2 w-fit">آرشیوی از برترین کتاب‌های سال</h2>
-                        <p data-aos="fade-up-right" data-aos-duration={600} className="bg-stone-50 rounded-md text-black p-2 w-fit text-xl font-semibold">نصب اپلیکیشن کتابخانه روی دسکتاپ</p>
-                        <Link data-aos="fade-up-right" data-aos-duration={800} href={''} className='flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-stone-50 w-fit px-2 py-1 rounded-md hover:bg-blue-400 transition-colors'>
-                            <BsArrowRight />
-                            مشاهده ویژگی ها
-                        </Link>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide className='relative'>
-                    <img className="w-full" src="/images/slide/slide2.jpg" alt="banner" />
-                    <div className="hidden md:flex absolute z-10 top-1/4 left-20 flex-col items-end gap-4">
-                        <h2 data-aos="fade-up-right" className="bg-gradient-to-r from-red-500 to-rose-500 rounded-md text-white shadow-md font-bold text-3xl p-2 w-fit">اپلیکیشن موبایلی کتابخانه بوکا</h2>
-                        <p data-aos="fade-up-right" data-aos-duration={600} className="bg-stone-50 rounded-md text-black p-2 w-fit text-xl font-semibold">تنها با چند کلیک به راحتی کتاب مورد علاقه خود را پیدا و مطالعه کنید.</p>
-                        <Link data-aos="fade-up-right" data-aos-duration={800} href={''} className='flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-stone-50 w-fit px-2 py-1 rounded-md hover:bg-blue-400 transition-colors'>
-                            <BsArrowRight />
-                            دانلود اپلیکیشن
-                        </Link>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide className='relative'>
-                    <img className="w-full" src="/images/slide/slide3.jpg" alt="banner" />
-                    <div className="hidden md:flex absolute z-10 top-1/4 left-20 flex-col items-end gap-4">
-                        <h2 data-aos="fade-up-right" className="bg-gradient-to-r from-red-500 to-rose-500 rounded-md text-white shadow-md font-bold text-3xl p-2 w-fit">بیش از صد هزار جلد کتاب در بوکا</h2>
-                        <p data-aos="fade-up-right" data-aos-duration={600} className="bg-stone-50 rounded-md text-black p-2 w-fit text-xl font-semibold">مشاهده لیست تمام ناشران</p>
-                        <Link data-aos="fade-up-right" data-aos-duration={800} href={''} className='flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-stone-50 w-fit px-2 py-1 rounded-md hover:bg-blue-400 transition-colors'>
-                            <BsArrowRight />
-                            خرید کتاب
-                        </Link>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide className='relative'>
-                    <img className="w-full" src="/images/slide/slide4.jpg" alt="banner" />
-                    <img className='hidden md:block absolute z-10 top-10 left-96' src="/images/slide/plane.png" alt="plane" />
-                    <div className="hidden md:flex absolute z-10 top-1/4 left-20 flex-col items-end gap-4">
-                        <h2 data-aos="fade-up-right" className="bg-gradient-to-r from-red-500 to-rose-500 rounded-md text-white shadow-md font-bold text-3xl p-2 w-fit">اپلیکیشن موبایلی کتابخانه بوکا</h2>
-                        <p data-aos="fade-up-right" data-aos-duration={600} className="bg-stone-50 rounded-md text-black p-2 w-fit text-xl font-semibold">در هر مکان و زمانی به راحتی به کتابخانه شخصی خود دسترسی دارید!</p>
-                        <Link data-aos="fade-up-right" data-aos-duration={800} href={''} className='flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-stone-50 w-fit px-2 py-1 rounded-md hover:bg-blue-400 transition-colors'>
-                            <BsArrowRight />
-                            برنامه‌های جانبی
-                        </Link>
-                    </div>
-                    <div className="hidden md:block absolute -bottom-10 w-52 lg:w-80 right-20 xl:right-40">
-                        <img src="/images/slide/books.png" alt="books" />
-                    </div>
-                </SwiperSlide>
-            </Swiper>
+        <div className='grid grid-cols-2 grid-rows-3 md:grid-cols-3 md:grid-rows-2 z-10 gap-5 py-6'>
+            <div className="col-span-2 row-span-2">
+                <Swiper
+                    spaceBetween={30}
+                    centeredSlides={true}
+                    loop={true}
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    navigation={true}
+                    modules={[Autoplay, Pagination, Navigation]}
+                    className="mySwiper"
+                >
+                    <SwiperSlide>
+                        <img className='rounded-sm' src="/images/slide/banner-2.jpg" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img className='rounded-sm' src="/images/slide/banner-3.jpg" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img className='rounded-sm' src="/images/slide/banner-4.jpg" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img className='rounded-sm' src="/images/slide/banner-1.jpg" />
+                    </SwiperSlide>
+                </Swiper>
+            </div>
+            <div className="col-span-1 row-span-1">
+                <Swiper
+                    effect={'cube'}
+                    loop={true}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    }}
+                    grabCursor={true}
+                    cubeEffect={{
+                        shadow: true,
+                        slideShadows: true,
+                        shadowOffset: 20,
+                        shadowScale: 0.94,
+                    }}
+                    pagination={true}
+                    modules={[Autoplay, EffectCube, Pagination]}
+                    className="mySwiper"
+                >
+                    <SwiperSlide>
+                        <img className='rounded-sm' src="/images/slide/banner-14.jpg" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img className='rounded-sm' src="/images/slide/banner-15.jpg" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img className='rounded-sm' src="/images/slide/banner-16.jpg" />
+                    </SwiperSlide>
+                </Swiper>
+            </div>
+            <div className="col-span-1 row-span-1">
+                <Swiper
+                    effect={'cube'}
+                    grabCursor={true}
+                    loop={true}
+                    autoplay={{
+                        delay: 3500,
+                        disableOnInteraction: false,
+                    }}
+                    cubeEffect={{
+                        shadow: true,
+                        slideShadows: true,
+                        shadowOffset: 20,
+                        shadowScale: 0.94,
+                    }}
+                    pagination={true}
+                    modules={[Autoplay, EffectCube, Pagination]}
+                    className="mySwiper"
+                >
+                    <SwiperSlide>
+                        <img className='rounded-sm' src="/images/slide/banner-17.jpg" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img className='rounded-sm' src="/images/slide/banner-18.jpg" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img className='rounded-sm' src="/images/slide/banner-19.jpg" />
+                    </SwiperSlide>
+                </Swiper>
+            </div>
         </div>
     )
 }

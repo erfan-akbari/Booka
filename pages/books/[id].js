@@ -7,11 +7,13 @@ import connectToDB from "@/utils/db";
 import booksModel from "@/models/book"
 import Comments from "@/components/module/Comments";
 import Title2 from "@/components/module/Title2";
+import Alert from "@/components/module/Alert";
 
 
 export default function BookDetails({ book, relatedBooks }) {
   return (
     <main className="shadow-inner">
+      <Alert title={'با کد تخفیف Salam اولین کتاب الکترونیکی یا صوتی‌ات را با ۵۰٪ تخفیف از طاقچه دریافت کن.'} />
       <SectionBookDetails data={...book} />
       <ContentWrapper>
         {/* description */}

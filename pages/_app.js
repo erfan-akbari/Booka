@@ -42,6 +42,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
+      <img className='w-full object-contain' src='/images/slide/banner-24.jpg' alt="banner" />
       <Header />
       <div className={`fixed top-0 left-0 right-0 -translate-y-20 ${show && 'translate-y-0'} transition-all duration-300 bg-stone-100 z-50 shadow-xl`}>
         <Navbar open={open} openDrawer={openDrawer} />

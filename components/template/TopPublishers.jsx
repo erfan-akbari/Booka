@@ -5,7 +5,7 @@ import 'swiper/css';
 function TopPublishers({ title }) {
     return (
         <>
-        <section className="py-10">
+        <section className="py-6">
         {title && <h2 className="text-indigo-600 text-3xl font-black mb-5">{title}</h2>}
             <Swiper
                 slidesPerView={2}

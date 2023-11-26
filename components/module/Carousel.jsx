@@ -10,7 +10,7 @@ import Link from 'next/link';
 function Carousel({ data, title, type }) {
     return (
         <>
-            <section className="py-5 w-full">
+            <section className="py-6 w-full">
                 <div className="flex items-center justify-between">
                     {title && <Title value={title} />}
                     <Link className='text-lime-600 font-extrabold text-xl flex items-center' href={`/books?page=1`}>

@@ -7,7 +7,7 @@ function CardV1({ title, body, id }) {
     }
 
     return (
-        <div className={`relative flex flex-col mt-6 text-gray-700 bg-gradient-to-b ${colorTheme[id].color} ${colorTheme[id].shadow} shadow-md w-96 rounded-xl bg-clip-border`}>
+        <div className={`relative flex flex-col text-gray-700 bg-gradient-to-b ${colorTheme[id].color} ${colorTheme[id].shadow} shadow-md w-96 rounded-xl bg-clip-border`}>
             <div className="p-6">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

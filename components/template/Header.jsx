@@ -6,34 +6,19 @@ import MediaIcons from "../module/MediaIcons";
 import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import { useRouter } from "next/router";
-import SearchBox from "../module/SearchBox";
 import MenuMobile from "./MenuMobile";
+import useGetMe from "@/hooks/useGetMe";
 
 function Header() {
     const { countries, mony } = useSelect();
     const { asPath } = useRouter()
     const [open, setOpen] = useState(false);
-    const [isLoginUser, setIsLoginUser] = useState(false);
-    const [userData, setUserData] = useState(null);
-
+    const { isLoginUser, userData } = useGetMe()
     const openDrawer = () => setOpen(prev => !prev);
 
     useEffect(() => {
         setOpen(false)
-        getMe()
     }, [asPath])
-
-    const getMe = async () => {
-        const userID = localStorage.getItem('ID')
-        if (userID) {
-            const res = await fetch(`/api/users/${userID}`)
-            const data = await res.json()
-            setUserData(data)
-            setIsLoginUser(true)
-        } else {
-            setIsLoginUser(false)
-        }
-    }
 
     return (
         <header>

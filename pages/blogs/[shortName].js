@@ -21,7 +21,7 @@ export default function Blog({ article }) {
                                     <img className="ml-4 w-16 h-16 rounded-full" src="/logo/avatar-1.png" alt="Jese Leos" />
                                     <div>
                                         <Link href="#" rel="author" className="text-xl font-bold text-gray-900 dark:text-white">{creator.title}</Link>
-                                        <p className="text-base text-gray-500 dark:text-gray-400"><time pubdate datetime="2022-02-08" title="February 8th, 2022">Feb. 8, 2022</time></p>
+                                        <p className="text-base text-gray-500 dark:text-gray-400"><time  dateTime="2022-02-08" title="February 8th, 2022">Feb. 8, 2022</time></p>
                                     </div>
                                 </div>
                             </address>

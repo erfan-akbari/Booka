@@ -29,7 +29,7 @@ function PaymentMethod({ setActiveStep }) {
                                             viewBox="0 0 20 20"
                                             fill="currentColor"
                                             stroke="currentColor"
-                                            strokeWidthe="1"
+                                            strokewidthe="1"
                                         >
                                             <path
                                                 fillRule="evenodd"
@@ -62,7 +62,7 @@ function PaymentMethod({ setActiveStep }) {
                                             viewBox="0 0 20 20"
                                             fill="currentColor"
                                             stroke="currentColor"
-                                            strokeWidthe="1"
+                                            strokewidthe="1"
                                         >
                                             <path
                                                 fillRule="evenodd"
@@ -95,7 +95,7 @@ function PaymentMethod({ setActiveStep }) {
                                             viewBox="0 0 20 20"
                                             fill="currentColor"
                                             stroke="currentColor"
-                                            strokeWidthe="1"
+                                            strokewidthe="1"
                                         >
                                             <path
                                                 fillRule="evenodd"
@@ -134,7 +134,7 @@ function PaymentMethod({ setActiveStep }) {
                                             viewBox="0 0 20 20"
                                             fill="currentColor"
                                             stroke="currentColor"
-                                            strokeWidthe="1"
+                                            strokewidthe="1"
                                         >
                                             <path
                                                 fillRule="evenodd"
@@ -167,7 +167,7 @@ function PaymentMethod({ setActiveStep }) {
                                             viewBox="0 0 20 20"
                                             fill="currentColor"
                                             stroke="currentColor"
-                                            strokeWidthe="1"
+                                            strokewidthe="1"
                                         >
                                             <path
                                                 fillRule="evenodd"
@@ -200,7 +200,7 @@ function PaymentMethod({ setActiveStep }) {
                                             viewBox="0 0 20 20"
                                             fill="currentColor"
                                             stroke="currentColor"
-                                            strokeWidthe="1"
+                                            strokewidthe="1"
                                         >
                                             <path
                                                 fillRule="evenodd"

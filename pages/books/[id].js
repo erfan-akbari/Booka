@@ -13,7 +13,7 @@ import Alert from "@/components/module/Alert";
 export default function BookDetails({ book, relatedBooks }) {
   return (
     <main className="shadow-inner">
-      <Alert title={'با کد تخفیف Salam اولین کتاب الکترونیکی یا صوتی‌ات را با ۵۰٪ تخفیف از طاقچه دریافت کن.'} />
+      <Alert title={'با کد تخفیف Salam اولین کتاب الکترونیکی یا صوتی‌ات را با ۵۰٪ تخفیف از بوکا دریافت کن.'} />
       <SectionBookDetails data={...book} />
       <ContentWrapper>
         {/* description */}

@@ -6,6 +6,6 @@ const schema = mongoose.Schema({
     }
 })
 
-const model = mongoose.models.newsletter || mongoose.model('newsletter', schema)
+const model = mongoose.models?.newsletter || mongoose.model('newsletter', schema)
 
 export default model;

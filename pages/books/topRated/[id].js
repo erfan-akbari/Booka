@@ -8,7 +8,7 @@ import Alert from "@/components/module/Alert"
 
 import connectToDB from "@/utils/db";
 import topRatedBooksModel from "@/models/topRatedBooks"
-import featuredModel from "@/models/featured"
+import booksModel from "@/models/book"
 
 
 export default function BookDetails({ book, relatedBooks }) {

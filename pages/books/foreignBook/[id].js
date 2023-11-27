@@ -7,7 +7,7 @@ import Comments from "@/components/module/Comments";
 import Alert from "@/components/module/Alert"
 
 import connectToDB from "@/utils/db";
-import topRatedBooksModel from "@/models/topRatedBooks"
+import booksModel from "@/models/book"
 import foreignBookModel from "@/models/foreignBook"
 
 

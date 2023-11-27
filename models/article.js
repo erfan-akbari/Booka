@@ -30,6 +30,6 @@ const schema = mongoose.Schema(
     }
 )
 
-const model = mongoose.models.article || mongoose.model('article', schema)
+const model = mongoose.models?.article || mongoose.model('article', schema)
 
 export default model;

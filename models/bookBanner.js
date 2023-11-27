@@ -9,6 +9,6 @@ const schema = mongoose.Schema({
     },
 })
 
-const model = mongoose.models.bookBanner || mongoose.model('bookBanner', schema)
+const model = mongoose.models?.bookBanner || mongoose.model('bookBanner', schema)
 
 export default model;

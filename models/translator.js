@@ -6,6 +6,6 @@ const schema = mongoose.Schema({
     }
 })
 
-const model = mongoose.models.translator || mongoose.model('translator', schema)
+const model = mongoose.models?.translator || mongoose.model('translator', schema)
 
 export default model;

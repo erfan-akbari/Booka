@@ -55,6 +55,6 @@ const schema = mongoose.Schema({
     }
 })
 
-const model = mongoose.models.book || mongoose.model('book', schema)
+const model = mongoose.models?.book || mongoose.model('book', schema)
 
 export default model;

@@ -6,6 +6,6 @@ const schema = mongoose.Schema({
     }
 })
 
-const model = mongoose.models.publications || mongoose.model('publications', schema)
+const model = mongoose.models?.publications || mongoose.model('publications', schema)
 
 export default model;

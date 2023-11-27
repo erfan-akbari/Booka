@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import Router from 'next/router'
+import swal from 'sweetalert';
+import { Result } from 'postcss';
 
 function Login() {
   const [username, setUsername] = useState('')
@@ -20,13 +22,24 @@ function Login() {
         })
       })
       const data = await res.json()
-      
+
       if (res.status === 200) {
-        alert(' ورود با موفقیت انجام شد')
-        localStorage.setItem('ID', data._id)
-        Router.push('/')
+        swal({
+          title: ' ورود با موفقیت انجام شد',
+          icon: "success",
+          button: 'تایید'
+        }).then(result => {
+          if (Result) {
+            localStorage.setItem('ID', data._id)
+            Router.push('/')
+          }
+        })
       } else {
-        alert('کاربری با این مشخصات یافت نشد ')
+        swal({
+          title: 'کاربری با این مشخصات یافت نشد ',
+          icon: "error",
+          button: 'تایید'
+        })
       }
 
       setUsername('')

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Router from 'next/router'
+import swal from 'sweetalert';
 
 function Register() {
   const [username, setUsername] = useState('')
@@ -25,11 +26,22 @@ function Register() {
       const data = await res.json()
 
       if (res.status === 201) {
-        alert('ثبت نام با موفقیت انجام شد')
-        localStorage.setItem('ID', data?.user._id)
-        Router.push('/')
+        swal({
+          title: 'ثبت نام با موفقیت انجام شد',
+          icon: "success",
+          button: 'تایید'
+        }).then(result => {
+          if (result) {
+            localStorage.setItem('ID', data?.user._id)
+            Router.push('/')
+          }
+        })
       } else {
-        alert('خطا, کاربری با این مشخصات وجود دارد , لطفا دوباره تلاش کنید')
+        swal({
+          title: 'کاربری با این مشخصات وجود دارد لطفا دوباره تلاش کنید',
+          icon: "error",
+          button: 'تایید'
+        })
       }
 
       setUsername('')

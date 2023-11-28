@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Router from 'next/router'
 import swal from 'sweetalert';
 import { Result } from 'postcss';
+import Link from 'next/link';
+import { FcGoogle } from "react-icons/fc";
 
 function Login() {
   const [username, setUsername] = useState('')
@@ -78,6 +80,19 @@ function Login() {
               </div>
             </div>
           </div>
+          <div className="text-gray-400 font-semibold">
+          حساب کاربری ندارید
+            <Link className='text-blue-500 font-bold hover:underline px-2 hover:text-blue-800' href={`/register`}>
+               ثبت نام
+            </Link>
+             کنید 
+          </div>
+          <p className="text-gray-400 font-semibold my-2">
+            رمز عبور یا نام کاربری خود را فراموش کرده اید؟
+          </p>
+          <p className="text-gray-400 font-semibold my-2 flex items-center gap-1 flex-row-reverse justify-end">
+            <FcGoogle />  ورود از طریق گوگل
+          </p>
         </div>
       </div>
     </div>

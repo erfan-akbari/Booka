@@ -1,18 +1,20 @@
-import React, { useState } from 'react'
-import Router from 'next/router'
-import swal from 'sweetalert';
+import React, { useState } from "react";
+import Router from "next/router";
+import swal from "sweetalert";
+import Link from "next/link";
+import { FcGoogle } from "react-icons/fc";
 
 function Register() {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const [email, setEmail] = useState('')
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
 
   const submitHandle = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
     if (username && password && email) {
       const res = await fetch(`/api/auth/register`, {
-        method: 'POST',
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
@@ -20,39 +22,37 @@ function Register() {
           username,
           password,
           email,
-        })
-      })
+        }),
+      });
 
-      const data = await res.json()
+      const data = await res.json();
 
       if (res.status === 201) {
         swal({
-          title: 'ثبت نام با موفقیت انجام شد',
+          title: "ثبت نام با موفقیت انجام شد",
           icon: "success",
-          button: 'تایید'
-        }).then(result => {
+          button: "تایید",
+        }).then((result) => {
           if (result) {
-            localStorage.setItem('ID', data?.user._id)
-            Router.push('/')
+            localStorage.setItem("ID", data?.user._id);
+            Router.push("/");
           }
-        })
+        });
       } else {
         swal({
-          title: 'کاربری با این مشخصات وجود دارد لطفا دوباره تلاش کنید',
+          title: "کاربری با این مشخصات وجود دارد لطفا دوباره تلاش کنید",
           icon: "error",
-          button: 'تایید'
-        })
+          button: "تایید",
+        });
       }
 
-      setUsername('')
-      setPassword('')
-      setEmail('')
-
+      setUsername("");
+      setPassword("");
+      setEmail("");
     } else {
-      alert('لطفا تمامی فیلد هارا تکمیل کنید')
+      alert("لطفا تمامی فیلد هارا تکمیل کنید");
     }
-
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 py-6 flex flex-col justify-center sm:py-12">
@@ -66,27 +66,87 @@ function Register() {
             <div className="divide-y divide-gray-200">
               <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                 <div className="relative">
-                  <input value={username} onChange={e => setUsername(e.target.value.trim())} autoComplete="off" id="userName" name="userName" type="text" className="peer placeholder-transparent rounded-md h-10 w-full border-b-2 px-5 mx-5 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="نام کاربری" />
-                  <label htmlFor="userName" className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">نام کاربری</label>
+                  <input
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value.trim())}
+                    autoComplete="off"
+                    id="userName"
+                    name="userName"
+                    type="text"
+                    className="peer placeholder-transparent rounded-md h-10 w-full border-b-2 px-5 mx-5 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
+                    placeholder="نام کاربری"
+                  />
+                  <label
+                    htmlFor="userName"
+                    className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
+                  >
+                    نام کاربری
+                  </label>
                 </div>
                 <div className="relative">
-                  <input value={email} onChange={e => setEmail(e.target.value.trim())} autoComplete="off" id="email" name="email" type="text" className="peer placeholder-transparent rounded-md h-10 w-full border-b-2 px-5 mx-5 border-gray-300 text-gray-900 outline-none focus:borer-rose-600" placeholder="ایمیل آدرس" />
-                  <label htmlFor="email" className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">آدرس ایمیل</label>
+                  <input
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value.trim())}
+                    autoComplete="off"
+                    id="email"
+                    name="email"
+                    type="text"
+                    className="peer placeholder-transparent rounded-md h-10 w-full border-b-2 px-5 mx-5 border-gray-300 text-gray-900 outline-none focus:borer-rose-600"
+                    placeholder="ایمیل آدرس"
+                  />
+                  <label
+                    htmlFor="email"
+                    className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
+                  >
+                    آدرس ایمیل
+                  </label>
                 </div>
                 <div className="relative">
-                  <input value={password} onChange={e => setPassword(e.target.value.trim())} autoComplete="off" id="password" name="password" type="password" className="peer placeholder-transparent rounded-md h-10 w-full border-b-2 px-5 mx-5 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="رمز عبور" />
-                  <label htmlFor="password" className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">رمز عبور</label>
+                  <input
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value.trim())}
+                    autoComplete="off"
+                    id="password"
+                    name="password"
+                    type="password"
+                    className="peer placeholder-transparent rounded-md h-10 w-full border-b-2 px-5 mx-5 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
+                    placeholder="رمز عبور"
+                  />
+                  <label
+                    htmlFor="password"
+                    className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
+                  >
+                    رمز عبور
+                  </label>
                 </div>
                 <div className="relative">
-                  <button onClick={submitHandle} className="bg-rose-500 text-white rounded-md px-2 py-1">ثبت نام</button>
+                  <button
+                    onClick={submitHandle}
+                    className="bg-rose-500 text-white rounded-md px-2 py-1"
+                  >
+                    ثبت نام
+                  </button>
                 </div>
               </div>
             </div>
           </div>
+          <div className="text-gray-400 font-semibold">
+            حساب کاربری دارید
+            <Link
+              className="text-blue-500 font-bold hover:underline px-2 hover:text-blue-800"
+              href={`/login`}
+            >
+              وارد
+            </Link>
+            شوید
+          </div>
+          <p className="text-gray-400 font-semibold my-2 flex items-center gap-1 flex-row-reverse justify-end">
+            <FcGoogle /> ثبت نام از طریق گوگل
+          </p>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Register
+export default Register;

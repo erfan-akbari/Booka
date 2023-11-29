@@ -13,9 +13,9 @@ const handler = async (req, res) => {
             return res.status(500).json({ message: 'server error' })
         }
     } else if (req.method === 'POST') {
-        const { question, creator, book } = req.body
-        if (question && creator && book) {
-            const newComments = await commentsModel.create({ question, creator, book })
+        const { text, creator, book } = req.body
+        if (text && creator && book) {
+            const newComments = await commentsModel.create({ text, creator, book })
             if (newComments) {
                 res.status(201).json({ newComments, message: 'Comment created successfully' })
             } else {

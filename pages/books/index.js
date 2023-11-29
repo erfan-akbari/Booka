@@ -1,48 +1,47 @@
-import CardV2 from '@/components/module/CardV2'
-import ContentWrapper from '@/components/module/ContentWrapper'
-import SelectBox from '@/components/module/SelectBox';
-import SidebarV2 from '@/components/module/SidebarV2'
-import useSelect from '@/hooks/useSelect';
-import { useEffect, useState } from 'react';
-import LoaderShimmer from '@/components/module/LoaderShimmer';
+import CardV2 from "@/components/module/CardV2";
+import ContentWrapper from "@/components/module/ContentWrapper";
+import SelectBox from "@/components/module/SelectBox";
+import SidebarV2 from "@/components/module/SidebarV2";
+import useSelect from "@/hooks/useSelect";
+import { useEffect, useState } from "react";
+import LoaderShimmer from "@/components/module/LoaderShimmer";
 
-import connectToDB from '@/utils/db';
-import booksModel from "@/models/book"
-import categoriesModel from "@/models/categories"
-import writersModel from "@/models/writer"
-import translatorsModel from "@/models/translator"
-import publicationsModel from "@/models/publication"
-import Title from '@/components/module/Title';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
-import PaginationBtn from '@/components/module/PaginationBtn';
+import connectToDB from "@/utils/db";
+import booksModel from "@/models/book";
+import categoriesModel from "@/models/categories";
+import writersModel from "@/models/writer";
+import translatorsModel from "@/models/translator";
+import publicationsModel from "@/models/publication";
+import Title from "@/components/module/Title";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import PaginationBtn from "@/components/module/PaginationBtn";
 
 export default function Books(props) {
   const { filtersType } = useSelect();
   const { asPath, query } = useRouter();
-  const [isloading, setIsLoading] = useState(false);
-  const [value, setValue] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [value, setValue] = useState("");
   const { books, btnCount } = props;
 
   const changeHandler = (value) => {
     setValue(value);
     sortBooksHandler(+value);
-  }
+  };
 
   useEffect(() => {
-    setValue('')
-  }, [asPath])
+    setValue("");
+  }, [asPath]);
 
   useEffect(() => {
-    setIsLoading(true)
-  }, [books])
+    setIsLoading(true);
+  }, [books]);
 
   setTimeout(() => {
-    setIsLoading(false)
+    setIsLoading(false);
   }, 1500);
 
   const sortBooksHandler = async (val) => {
-
     switch (val) {
       case 1:
         books.sort((a, b) => b.discount - a.discount);
@@ -69,31 +68,35 @@ export default function Books(props) {
         break;
 
       default:
-        books.reverse()
+        books.reverse();
         break;
     }
-  }
+  };
 
   return (
-    <div className='shadow-inner py-10'>
+    <div className="shadow-inner py-10">
       <ContentWrapper>
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-5">
           <SidebarV2 data={props} />
-          <main className='w-full lg:basis-[75%] flex flex-col gap-6'>
+          <main className="w-full lg:basis-[75%] flex flex-col gap-6">
             <div className="flex justify-between mb-5">
-              <Title value={'همه محصولات'} />
+              <Title value={"همه محصولات"} />
               <div className="w-72">
-                <SelectBox value={value} data={filtersType} changeHandler={changeHandler} />
+                <SelectBox
+                  value={value}
+                  data={filtersType}
+                  changeHandler={changeHandler}
+                />
               </div>
             </div>
-            {!isloading ? (
-              <div className='w-full lg:basis-[75%] flex flex-col items-center md:grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
-                {books?.map(book => (
+            {!isLoading ? (
+              <div className="w-full lg:basis-[75%] flex flex-col items-center md:grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {books?.map((book) => (
                   <CardV2 key={book._id} {...book} />
                 ))}
               </div>
             ) : (
-              <div className='w-full lg:basis-[75%] flex flex-col items-center md:grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
+              <div className="w-full lg:basis-[75%] flex flex-col items-center md:grid md:grid-cols-2 lg:grid-cols-3 gap-5">
                 <LoaderShimmer />
                 <LoaderShimmer />
                 <LoaderShimmer />
@@ -107,11 +110,11 @@ export default function Books(props) {
         </div>
       </ContentWrapper>
     </div>
-  )
+  );
 }
 
 export async function getServerSideProps({ query }) {
-  connectToDB()
+  connectToDB();
   let books;
   let btnCount;
 
@@ -149,6 +152,6 @@ export async function getServerSideProps({ query }) {
       translators: JSON.parse(JSON.stringify(translators)),
       publications: JSON.parse(JSON.stringify(publications)),
       btnCount,
-    }
-  }
+    },
+  };
 }

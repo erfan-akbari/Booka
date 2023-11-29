@@ -91,7 +91,7 @@ export default function BookDetails({ book, relatedBooks }) {
         {/* Carousel */}
         <Carousel data={relatedBooks} title={'محصولات مرتبط'} type={'featured'} />
         {/* Comments */}
-        <Comments />
+        <Comments data={...book} />
       </ContentWrapper>
     </main>
   )
@@ -115,7 +115,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   connectToDB()
-  const book = await topRatedBooksModel.findOne({ _id: params.id })
+  const book = await topRatedBooksModel.findOne({ _id: params.id }).populate('comments').lean()
   const relatedBooks = await booksModel.find({ category: book.category })
 
   if (!book) {

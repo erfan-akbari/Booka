@@ -1,16 +1,16 @@
 const mongoose = require('mongoose')
+const book = require('@/models/book')
 
 const schema = mongoose.Schema(
     {
-        question: {
+        text: {
             type: String,
             required: true,
             maxLength: 200,
             minLength: 3,
         },
         creator: {
-            type: mongoose.Types.ObjectId,
-            ref: 'user',
+            type: String,
             required: true,
         },
         book: {

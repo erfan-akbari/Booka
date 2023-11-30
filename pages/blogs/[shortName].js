@@ -58,8 +58,8 @@ export default function Blog({ article }) {
 
 export async function getStaticPaths() {
     connectToDB()
-    const articles = await articlesModel.find()
-
+    const articles = await articlesModel.find().populate("creator");
+    console.log(articles);
     const paths = articles?.map(article => {
         return {
             params: { shortName: String(article.shortName) }

@@ -1,4 +1,4 @@
-import Comments from '@/components/module/Comments'
+// import Comments from '@/components/module/Comments'
 import ContentWrapper from '@/components/module/ContentWrapper'
 import Sidebar from '@/components/module/Sidebar'
 import React from 'react'
@@ -45,9 +45,9 @@ export default function Blog({ article }) {
                                 </div>
                             </article>
                         </main>
-                        <footer className='shadow-md p-2 rounded-lg border-t-4 my-10'>
-                            <Comments />
-                        </footer>
+                        {/* <footer className='shadow-md p-2 rounded-lg border-t-4 my-10'> */}
+                            {/* <Comments /> */}
+                        {/* </footer> */}
                     </div>
                     <Sidebar />
                 </div>

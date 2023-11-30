@@ -58,11 +58,11 @@ export default function Blog({ article }) {
 
 export async function getStaticPaths() {
     connectToDB()
-    const articles = await articlesModel.find().populate("creator");
-    console.log(articles);
-    const paths = articles?.map(article => {
+    const articles = await articlesModel.find({}).populate("creator");
+
+    const paths = articles?.slice(0, 3).map(article => {
         return {
-            params: { shortName: String(article.shortName) }
+            params: { id: String(article._id) }
         }
     })
 
@@ -74,7 +74,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     connectToDB()
-    const article = await articlesModel.findOne({ shortName: params.shortName }).populate("creator");
+    const article = await articlesModel.findOne({ _id: params.id }).populate("creator");
 
     if (!article) {
         return {
@@ -85,6 +85,7 @@ export async function getStaticProps({ params }) {
     return {
         props: {
             article: JSON.parse(JSON.stringify(article)),
-        }
+        },
+        revalidate: 60 * 60 * 12 // 43,200
     }
 }

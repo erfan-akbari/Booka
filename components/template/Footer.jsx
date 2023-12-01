@@ -16,7 +16,11 @@ function Footer() {
             body: JSON.stringify({ email })
         })
         if (res.status === 201) {
-            alert('شما با موفقیت در خبر نامه ما عضو شدید :))')
+            swal({
+                title: 'شما با موفقیت در خبر نامه ما عضو شدید.',
+                icon: "success",
+                button: "تایید",
+              });
             setEmail('')
         }
     }

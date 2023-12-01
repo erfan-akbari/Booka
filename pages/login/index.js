@@ -48,7 +48,11 @@ function Login() {
       setPassword('')
 
     } else {
-      alert('لطفا تمامی فیلد هارا تکمیل کنید')
+      swal({
+        title: "لطفا تمامی فیلد هارا تکمیل کنید",
+        icon: "warning",
+        button: "تایید",
+      });
     }
 
   }

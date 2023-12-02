@@ -41,7 +41,7 @@ export default function Blogs({ articles }) {
 export async function getStaticProps({ params }) {
   connectToDB()
   const articles = await articlesModel.find().populate("creator");
-
+  console.log(articles);
   if (!articles) {
     return {
       notFound: true

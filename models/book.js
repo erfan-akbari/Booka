@@ -59,7 +59,7 @@ const schema = mongoose.Schema({
 schema.virtual("comments", {
   ref: "comment",
   localField: "_id",
-  foreignField: "book",
+  foreignField: "mainID",
 });
 
 const model = mongoose.models?.book || mongoose.model("book", schema);

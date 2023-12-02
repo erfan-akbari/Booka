@@ -13,9 +13,9 @@ const schema = mongoose.Schema(
             type: String,
             required: true,
         },
-        book: {
+        mainID: {
             type: mongoose.Types.ObjectId,
-            ref: 'book',
+            ref: 'book' || 'article',
             required: true,
         }
     },

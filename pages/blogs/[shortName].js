@@ -1,4 +1,4 @@
-// import Comments from '@/components/module/Comments'
+import Comments from '@/components/module/Comments'
 import ContentWrapper from '@/components/module/ContentWrapper'
 import Sidebar from '@/components/module/Sidebar'
 import React from 'react'
@@ -45,9 +45,9 @@ export default function Blog({ article }) {
                                 </div>
                             </article>
                         </main>
-                        {/* <footer className='shadow-md p-2 rounded-lg border-t-4 my-10'> */}
-                            {/* <Comments /> */}
-                        {/* </footer> */}
+                        <footer className='shadow-md p-2 rounded-lg border-t-4 my-10'>
+                            <Comments data={...article}  />
+                        </footer>
                     </div>
                     <Sidebar />
                 </div>
@@ -57,7 +57,7 @@ export default function Blog({ article }) {
 }
 
 export async function getStaticPaths() {
-    await connectToDB()
+    connectToDB()
     const articles = await articlesModel.find()
 
     const paths = await articles?.map(article => {
@@ -73,8 +73,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    await connectToDB()
-    const article = await articlesModel.findOne({ shortName: params.shortName }).populate("creator");
+    connectToDB()
+    const article = await articlesModel.findOne({ shortName: params.shortName }).populate("comments").lean()
 
     if (!article) {
         return {

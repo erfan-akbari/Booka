@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
-const writerModel = require('@/models/writer')
+const writersModel = require('@/models/writer')
+const commentsModel = require('@/models/comment')
 
 const schema = mongoose.Schema(
     {
@@ -29,6 +30,12 @@ const schema = mongoose.Schema(
         timestamps: true
     }
 )
+
+schema.virtual('comments', {
+    ref: 'comment',
+    localField: '_id',
+    foreignField: 'mainID'
+})
 
 const model = mongoose.models?.article || mongoose.model('article', schema)
 

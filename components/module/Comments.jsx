@@ -23,10 +23,9 @@ function Comments({ data }) {
           body: JSON.stringify({
             text: comment,
             creator: userData.username,
-            book: _id,
+            mainID: _id,
           }),
         });
-
         if (res.status === 201) {
           swal({
             title: "نظر شما با موفقیت ثبت شد",
@@ -66,7 +65,7 @@ function Comments({ data }) {
       });
     }
   };
-
+  
   return (
     <section className="bg-white dark:bg-gray-900 py-8 lg:py-16 antialiased">
       <div className=" mx-auto px-4">
@@ -99,7 +98,7 @@ function Comments({ data }) {
           </button>
         </form>
 
-        {comments.length !== 0 && comments.map(item => (
+        {comments?.length !== 0 && comments?.map(item => (
           <article key={item._id} className="p-6 text-base bg-white rounded-lg dark:bg-gray-900">
             <footer className="flex justify-between items-center mb-2">
               <div className="flex items-center">
@@ -197,7 +196,7 @@ function Comments({ data }) {
           </article>
         ))}
 
-        {comments.length === 0 && (
+        {comments?.length === 0 && (
           <div
             class="bg-rose-100 border-t-4 border-rose-500 rounded-b text-rose-900 px-4 py-3 shadow-md"
             role="alert"

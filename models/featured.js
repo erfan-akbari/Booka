@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const commentsModel = require('@/models/comment')
 
 const schema = mongoose.Schema({
     title: {
@@ -25,6 +26,12 @@ const schema = mongoose.Schema({
     shadow: {
         type: String
     }
+})
+
+schema.virtual("comments", {
+    ref: "comment",
+    localField: "_id",
+    foreignField: "mainID",
 })
 
 const model = mongoose.models?.featured || mongoose.model('featured', schema)

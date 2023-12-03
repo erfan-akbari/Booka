@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const commentsModel = require('@/models/comment')
 
 const schema = mongoose.Schema({
     title: {
@@ -53,6 +54,12 @@ const schema = mongoose.Schema({
         type: String,
         required: true
     }
+})
+
+schema.virtual("comments", {
+    ref: "comment",
+    localField: "_id",
+    foreignField: "mainID",
 })
 
 const model = mongoose.models?.topRatedBooks || mongoose.model('topRatedBooks', schema)

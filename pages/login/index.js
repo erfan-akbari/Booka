@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import Router from 'next/router'
 import swal from 'sweetalert';
 import { Result } from 'postcss';
@@ -60,7 +59,7 @@ function Login() {
 
           if (!values.password) {
             errors.password = 'این فیلد اجباری می باشد'
-          } else if (/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/.test(values.password)) {
+          } else if (!/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/gm.test(values.password)) {
             errors.password = 'رمزعبور را به درستی تایپ کنید'
           } else if (values.password.length > 15) {
             errors.password = 'رمزعبور باید حداکثر 15 کاراکتر باشد'
@@ -132,7 +131,7 @@ function Login() {
                           disabled={isSubmitting}
                           className="bg-rose-500 text-white rounded-md px-2 py-1"
                         >
-                          ارسال
+                          ورود
                         </button>
                       </div>
                     </form>
